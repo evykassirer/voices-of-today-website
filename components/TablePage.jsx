@@ -2,6 +2,57 @@ const { StyleSheet, css } = require('../lib/aphrodite.js');
 const React = require('react');
 const moment = require('moment');
 
+
+const ClickToEdit = React.createClass({
+    getInitialState: function() {
+        return {
+            isEditing: false,
+            text: this.props.text,
+        };
+    },
+    handleOnClick: function() {
+        this.setState({
+            isEditing: true,
+        });
+    },
+    handleOnChange: function(e) {
+        this.setState({
+            text: e.target.value(),
+        });
+    },
+    handleOnBlur: function(e) {
+        //this.props.onSubmit();
+        this.setState({
+            isEditing: false,
+        });
+    },
+    handleOnFocus: function(e) {
+        e.target.setSelectionRange(0, e.target.value.length);
+    },
+    render: function() {
+        const {
+            inputClass,
+            textClass,
+        } = this.props;
+        const {
+            text
+        } = this.state;
+        if (this.state.isEditing) {
+            return <input
+                className={css(inputClass, ST.input)}
+                value={text}
+                onChange={this.handleOnChange}
+                onBlur={this.handleOnBlur}
+                autoFocus={true}
+                onFocus={this.handleOnFocus}
+            />
+        }
+        return <span onClick={this.handleOnClick}>
+            {text}
+        </span>;
+    },
+});
+
 const TablePage = React.createClass({
 
     render: function() {
@@ -37,11 +88,14 @@ const TablePage = React.createClass({
                             <div
                                 className={css(ST.cell)}
                             >
-                                {moment(entry.date).format('MMM Do')}
+                                <ClickToEdit
+                                    inputClass={ST.dateInput}
+                                    text={moment(entry.date).format('MMM Do')}
+                                />
                             </div>
                             {exercises && exercises.map(
                                 (exercise, exerciseIdx) => {
-                                const ex = entry.exercises[exercise.name];
+                                const ex = entry.exercises[exercise.id];
                                 return ex && <div
                                     className={css(ST.cell)}
                                     key={exerciseIdx}
@@ -90,9 +144,10 @@ const ST = StyleSheet.create({
     },
     column: {
         borderRight: "1px solid #ddd",
+        width: 120,
     },
     exerciseCell: {
-        background: "#fafafa",
+
     },
     cell: {
         height: 40,
@@ -100,6 +155,14 @@ const ST = StyleSheet.create({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+    },
+    input: {
+        font: "inherit",
+        fontSize: "inherit",
+        width: "100%",
+    },
+    dateInput: {
+        textAlign: "center",
     },
 });
 
