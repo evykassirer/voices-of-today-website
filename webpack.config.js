@@ -1,5 +1,9 @@
 module.exports = {
-    entry: './index.jsx',
+    entry: [
+      'webpack-dev-server/client?http://0.0.0.0:8010',
+      'webpack/hot/only-dev-server',
+      './index.jsx',
+    ],
     output: {
         filename: 'bundle.js',
     },
@@ -8,11 +12,11 @@ module.exports = {
             {
                 // tell webpack to use babel for all *.jsx files
                 test: /\.jsx$/,
-                loader: 'babel-loader'
-            }
-        ]
+                loaders: ['react-hot', 'babel-loader']
+            },
+        ],
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
-    }
+    },
 };
