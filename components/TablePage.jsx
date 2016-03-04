@@ -78,6 +78,17 @@ const TablePage = React.createClass({
                             {exercise.name}
                         </div>;
                     })}
+                    <div
+                        className={css(ST.cell)}
+                    >
+                        <button
+                            onClick={() => {
+                                this.props.addExercise();
+                            }}
+                        >
+                            Add Exercise
+                        </button>
+                    </div>
                 </div>
                 <div className={css(ST.results)}>
                     {entries && entries.map((entry, entryIdx) => {
@@ -105,17 +116,18 @@ const TablePage = React.createClass({
                             })}
                         </div>;
                     })}
+                    <div className={css(ST.column)}>
+                        <div
+                            className={css(ST.cell)}
+                        >
+                            <button
+                                onClick={() => {
+                                    this.props.addEntry();
+                                }}
+                            >Add Entry</button>
+                        </div>
+                    </div>
                 </div>
-                <button
-                    onClick={() => {
-                        this.props.addEntry();
-                    }}
-                >Add Entry</button>
-                <button
-                    onClick={() => {
-                        this.props.addExercise();
-                    }}
-                >Add Exercise</button>
             </div>
         </div>);
     }
