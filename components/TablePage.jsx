@@ -3,7 +3,13 @@ const React = require('react');
 const moment = require('moment');
 
 
+const RP = React.PropTypes;
+
 const ClickToEdit = React.createClass({
+    propTypes: {
+        text: RP.string,
+        inputClass: RP.object,
+    },
     getInitialState: function() {
         return {
             isEditing: false,
@@ -54,6 +60,19 @@ const ClickToEdit = React.createClass({
 });
 
 const TablePage = React.createClass({
+    propTypes: {
+        entries: RP.arrayOf(RP.shape({
+            date: RP.number,
+            exercises: RP.object,
+            id: RP.number,
+        })),
+        exercises:  RP.arrayOf(RP.shape({
+            name: RP.string,
+            id: RP.number,
+        })),
+        addExercise: RP.func,
+        addEntry: RP.func,
+    },
 
     render: function() {
         const {
@@ -102,7 +121,9 @@ const TablePage = React.createClass({
                                 >
                                     <ClickToEdit
                                         inputClass={ST.dateInput}
-                                        text={moment(entry.date).format('MMM Do')}
+                                        text={
+                                            moment(entry.date).format('MMM Do')
+                                        }
                                     />
                                 </div>
                                 {exercises && exercises.map(

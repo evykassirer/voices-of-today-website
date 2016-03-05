@@ -3,7 +3,6 @@ const exercise = (state, action) => {
         case 'ADD_EXERCISE':
             return {
                 id: action.id,
-                date: null,
                 name: 'new exercise',
             };
         default:
