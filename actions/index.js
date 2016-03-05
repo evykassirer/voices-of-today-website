@@ -7,6 +7,12 @@ const addEntry = () => {
         exercises: {},
     };
 };
+const deleteEntry = (id) => {
+    return {
+        type: 'DELETE_ENTRY',
+        id: id,
+    };
+};
 
 let nextExerciseId = 0;
 const addExercise = () => {
@@ -18,5 +24,6 @@ const addExercise = () => {
 
 module.exports = {
     addEntry,
+    deleteEntry,
     addExercise,
 };

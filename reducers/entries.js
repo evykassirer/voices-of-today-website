@@ -20,6 +20,14 @@ const entries = (state = [], action) => {
                 ...state,
                 entry(undefined, action),
             ];
+        case 'DELETE_ENTRY': {
+            const deletedEntry = state.findIndex((a) => {
+                return a.id === action.id;
+            });
+            const newState = [...state];
+            newState.splice(deletedEntry, 1);
+            return newState;
+        }
         default:
             return state;
     }

@@ -72,6 +72,7 @@ const TablePage = React.createClass({
         })),
         addExercise: RP.func,
         addEntry: RP.func,
+        deleteEntry: RP.func,
     },
 
     render: function() {
@@ -136,6 +137,11 @@ const TablePage = React.createClass({
                                         {ex}
                                     </div>;
                                 })}
+                                <button
+                                    onClick={() => {
+                                        this.props.deleteEntry(entry.id);
+                                    }}
+                                >Delete Entry</button>
                             </div>;
                         })}
                         <div className={css(ST.column)}>

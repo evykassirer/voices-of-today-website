@@ -1,7 +1,7 @@
 const React = require('react');
 const { connect } = require('react-redux');
 
-const { addEntry, addExercise } = require('./actions/index.js');
+const actions = require('./actions/index.js');
 const TablePage = require('./components/TablePage.jsx');
 
 let App = React.createClass({
@@ -9,12 +9,7 @@ let App = React.createClass({
     },
 
     render: function() {
-        return <TablePage
-            entries={this.props.entries}
-            exercises={this.props.exercises}
-            addEntry={this.props.addEntry}
-            addExercise={this.props.addExercise}
-        />;
+        return <TablePage {...this.props} />;
     }
 });
 
@@ -25,10 +20,13 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         addEntry: () => {
-            dispatch(addEntry());
+            dispatch(actions.addEntry());
+        },
+        deleteEntry: (id) => {
+            dispatch(actions.deleteEntry(id));
         },
         addExercise: () => {
-            dispatch(addExercise());
+            dispatch(actions.addExercise());
         },
     };
 };
