@@ -25,6 +25,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         deleteEntry: (id) => {
             dispatch(actions.deleteEntry(id));
         },
+        updateEntryDate: (id, date) => {
+            dispatch(actions.updateEntryDate(id, date));
+        },
         addExercise: () => {
             dispatch(actions.addExercise());
         },

@@ -23,11 +23,11 @@ const ClickToEdit = React.createClass({
     },
     handleOnChange: function(e) {
         this.setState({
-            text: e.target.value(),
+            text: e.target.value,
         });
     },
     handleOnBlur: function(e) {
-        //this.props.onSubmit();
+        this.props.onSubmit(this.state.text);
         this.setState({
             isEditing: false,
         });
@@ -73,12 +73,14 @@ const TablePage = React.createClass({
         addExercise: RP.func,
         addEntry: RP.func,
         deleteEntry: RP.func,
+        updateEntryDate: RP.func,
     },
 
     render: function() {
         const {
             entries,
             exercises,
+            updateEntryDate,
         } = this.props;
 
         return (<div className={css(ST.page)}>
@@ -125,6 +127,14 @@ const TablePage = React.createClass({
                                         text={
                                             moment(entry.date).format('MMM Do')
                                         }
+                                        onSubmit={(newDate) => {
+                                            updateEntryDate(
+                                                entry.id,
+                                                moment(newDate, "MMM Do")
+                                                    .valueOf(),
+                                                null
+                                            );
+                                        }}
                                     />
                                 </div>
                                 {exercises && exercises.map(

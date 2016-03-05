@@ -7,6 +7,13 @@ const addEntry = () => {
         exercises: {},
     };
 };
+const updateEntryDate = (id, date) => {
+    return {
+        type: 'UPDATE_ENTRY',
+        id: id,
+        date: date,
+    };
+};
 const deleteEntry = (id) => {
     return {
         type: 'DELETE_ENTRY',
@@ -25,5 +32,7 @@ const addExercise = () => {
 module.exports = {
     addEntry,
     deleteEntry,
+    updateEntryDate,
+
     addExercise,
 };

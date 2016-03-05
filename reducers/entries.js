@@ -8,6 +8,12 @@ const entry = (state, action) => {
                 date: moment().valueOf(),
                 exercises: action.exercises,
             };
+        case 'UPDATE_ENTRY':
+            return {
+                id: action.id || state.id,
+                date: action.date || state.date,
+                exercises: action.exercises || state.exercises,
+            };
         default:
             return state;
     }
@@ -26,6 +32,14 @@ const entries = (state = [], action) => {
             });
             const newState = [...state];
             newState.splice(deletedEntry, 1);
+            return newState;
+        }
+        case 'UPDATE_ENTRY': {
+            const updatedEntry = state.findIndex((a) => {
+                return a.id === action.id;
+            });
+            const newState = [...state];
+            newState[updatedEntry] = entry(state[action.id], action);
             return newState;
         }
         default:
