@@ -91,40 +91,42 @@ const TablePage = React.createClass({
                     </div>
                 </div>
                 <div className={css(ST.results)}>
-                    {entries && entries.map((entry, entryIdx) => {
-                        return <div
-                            className={css(ST.column)}
-                            key={entryIdx}
-                        >
+                    <div className={css(ST.resultsInner)}>
+                        {entries && entries.map((entry, entryIdx) => {
+                            return <div
+                                className={css(ST.column)}
+                                key={entryIdx}
+                            >
+                                <div
+                                    className={css(ST.cell)}
+                                >
+                                    <ClickToEdit
+                                        inputClass={ST.dateInput}
+                                        text={moment(entry.date).format('MMM Do')}
+                                    />
+                                </div>
+                                {exercises && exercises.map(
+                                    (exercise, exerciseIdx) => {
+                                    const ex = entry.exercises[exercise.id];
+                                    return ex && <div
+                                        className={css(ST.cell)}
+                                        key={exerciseIdx}
+                                    >
+                                        {ex}
+                                    </div>;
+                                })}
+                            </div>;
+                        })}
+                        <div className={css(ST.column)}>
                             <div
                                 className={css(ST.cell)}
                             >
-                                <ClickToEdit
-                                    inputClass={ST.dateInput}
-                                    text={moment(entry.date).format('MMM Do')}
-                                />
+                                <button
+                                    onClick={() => {
+                                        this.props.addEntry();
+                                    }}
+                                >Add Entry</button>
                             </div>
-                            {exercises && exercises.map(
-                                (exercise, exerciseIdx) => {
-                                const ex = entry.exercises[exercise.id];
-                                return ex && <div
-                                    className={css(ST.cell)}
-                                    key={exerciseIdx}
-                                >
-                                    {ex}
-                                </div>;
-                            })}
-                        </div>;
-                    })}
-                    <div className={css(ST.column)}>
-                        <div
-                            className={css(ST.cell)}
-                        >
-                            <button
-                                onClick={() => {
-                                    this.props.addEntry();
-                                }}
-                            >Add Entry</button>
                         </div>
                     </div>
                 </div>
@@ -135,7 +137,7 @@ const TablePage = React.createClass({
 
 const ST = StyleSheet.create({
     page: {
-        maxWidth: 1000,
+        maxWidth: 800,
         margin: "0 auto",
         padding: 20,
     },
@@ -153,6 +155,10 @@ const ST = StyleSheet.create({
         display: "flex",
         flex: 1,
         alignSelf: "stretch",
+        overflowX: "auto",
+    },
+    resultsInner: {
+        display: "flex",
     },
     column: {
         borderRight: "1px solid #ddd",
