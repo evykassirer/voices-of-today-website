@@ -4,26 +4,6 @@ const { connect } = require('react-redux');
 const { addEntry, addExercise } = require('./actions/index.js');
 const TablePage = require('./components/TablePage.jsx');
 
-const data = {
-    exercises: [
-        {
-            name: "push ups",
-        },
-        {
-            name: "sit ups",
-        },
-    ],
-    entries: [
-        {
-            day: "feb 2",
-            exercises: {
-                "push ups": 2,
-                "sit ups": 15
-            },
-        },
-    ],
-};
-
 let App = React.createClass({
     propTypes: {
     },
