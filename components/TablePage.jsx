@@ -80,17 +80,22 @@ const TablePage = React.createClass({
 
     render: function() {
         const {
-            entries,
             exercises,
             updateEntryDate,
             updateExercise,
         } = this.props;
 
+        const entries = this.props.entries;
+        entries.sort((entry1, entry2) => {
+            // show newest dates on the left/first
+            return entry1.date < entry2.date;
+        });
+
         return (<div className={css(ST.page)}>
             <h1 className={css(ST.title)}>Weight Lifting Tracker</h1>
 
             <div className={css(ST.table)}>
-                <div className={css(ST.column)}>
+                <div className={css(ST.column, ST.exerciseColumn)}>
                     <div
                         className={css(ST.cell)}
                     >
@@ -98,7 +103,7 @@ const TablePage = React.createClass({
                     {exercises && exercises.map((exercise, idx) => {
                         return <div
                             key={idx}
-                            className={css(ST.cell, ST.exerciseCell)}
+                            className={css(ST.cell)}
                         >
                             <ClickToEdit
                                 text={exercise.name}
@@ -110,10 +115,11 @@ const TablePage = React.createClass({
                                 }}
                             />
                             <button
+                                className={css(ST.deleteButton)}
                                 onClick={() => {
                                     this.props.deleteExercise(exercise.id);
                                 }}
-                            >Delete</button>
+                            >&times;</button>
                         </div>;
                     })}
                     <div
@@ -130,10 +136,21 @@ const TablePage = React.createClass({
                 </div>
                 <div className={css(ST.results)}>
                     <div className={css(ST.resultsInner)}>
+                        <div className={css(ST.column)}>
+                            <div
+                                className={css(ST.cell)}
+                            >
+                                <button
+                                    onClick={() => {
+                                        this.props.addEntry();
+                                    }}
+                                >Add Entry</button>
+                            </div>
+                        </div>
                         {entries && entries.map((entry, entryIdx) => {
                             return <div
                                 className={css(ST.column)}
-                                key={entryIdx}
+                                key={entry.id}
                             >
                                 <div
                                     className={css(ST.cell)}
@@ -156,7 +173,7 @@ const TablePage = React.createClass({
                                 {exercises && exercises.map(
                                     (exercise, exerciseIdx) => {
                                     const ex = entry.exercises[exercise.id];
-                                    return ex && <div
+                                    return <div
                                         className={css(ST.cell)}
                                         key={exerciseIdx}
                                     >
@@ -164,10 +181,11 @@ const TablePage = React.createClass({
                                     </div>;
                                 })}
                                 <button
+                                    className={css(ST.deleteButton)}
                                     onClick={() => {
                                         this.props.deleteEntry(entry.id);
                                     }}
-                                >Delete Entry</button>
+                                >&times; Delete Entry</button>
                             </div>;
                         })}
                         <div className={css(ST.column)}>
@@ -217,8 +235,10 @@ const ST = StyleSheet.create({
         borderRight: "1px solid #ddd",
         width: 120,
     },
+    exerciseColumn: {
+        width: 160,
+    },
     exerciseCell: {
-
     },
     cell: {
         height: 40,
@@ -234,6 +254,14 @@ const ST = StyleSheet.create({
     },
     dateInput: {
         textAlign: "center",
+    },
+
+    deleteButton: {
+        background: "none",
+        border: "none",
+        color: "#999",
+        cursor: "pointer",
+        fontSize: 16,
     },
 });
 
