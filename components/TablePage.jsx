@@ -73,7 +73,9 @@ const TablePage = React.createClass({
         addExercise: RP.func,
         addEntry: RP.func,
         deleteEntry: RP.func,
+        deleteExercise: RP.func,
         updateEntryDate: RP.func,
+        updateExercise: RP.func,
     },
 
     render: function() {
@@ -81,6 +83,7 @@ const TablePage = React.createClass({
             entries,
             exercises,
             updateEntryDate,
+            updateExercise,
         } = this.props;
 
         return (<div className={css(ST.page)}>
@@ -97,7 +100,20 @@ const TablePage = React.createClass({
                             key={idx}
                             className={css(ST.cell, ST.exerciseCell)}
                         >
-                            {exercise.name}
+                            <ClickToEdit
+                                text={exercise.name}
+                                onSubmit={(newName) => {
+                                    updateExercise(
+                                        exercise.id,
+                                        newName
+                                    );
+                                }}
+                            />
+                            <button
+                                onClick={() => {
+                                    this.props.deleteExercise(exercise.id);
+                                }}
+                            >Delete</button>
                         </div>;
                     })}
                     <div

@@ -1,10 +1,7 @@
 
-let nextEntryId = 0;
 const addEntry = () => {
     return {
         type: 'ADD_ENTRY',
-        id: nextEntryId++,
-        exercises: {},
     };
 };
 const updateEntryDate = (id, date) => {
@@ -21,11 +18,22 @@ const deleteEntry = (id) => {
     };
 };
 
-let nextExerciseId = 0;
 const addExercise = () => {
     return {
         type: 'ADD_EXERCISE',
-        id: nextExerciseId++,
+    };
+};
+const updateExercise = (id, name) => {
+    return {
+        type: 'UPDATE_EXERCISE',
+        id: id,
+        name: name,
+    };
+};
+const deleteExercise = (id) => {
+    return {
+        type: 'DELETE_EXERCISE',
+        id: id,
     };
 };
 
@@ -35,4 +43,6 @@ module.exports = {
     updateEntryDate,
 
     addExercise,
+    updateExercise,
+    deleteExercise,
 };

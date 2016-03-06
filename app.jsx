@@ -31,6 +31,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         addExercise: () => {
             dispatch(actions.addExercise());
         },
+        deleteExercise: (id) => {
+            dispatch(actions.deleteExercise(id));
+        },
+        updateExercise: (id, date) => {
+            dispatch(actions.updateExercise(id, date));
+        },
     };
 };
 

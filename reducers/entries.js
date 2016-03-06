@@ -2,12 +2,17 @@ const moment = require('moment');
 
 const entry = (state, action) => {
     switch (action.type) {
-        case 'ADD_ENTRY':
+        case 'ADD_ENTRY': {
+            let highestId = 0;
+            state.forEach((entry) => {
+                highestId = entry.id > highestId ? entry.id : highestId;
+            });
             return {
-                id: action.id,
+                id: highestId + 1,
                 date: moment().valueOf(),
-                exercises: action.exercises,
+                exercises: {},
             };
+        }
         case 'UPDATE_ENTRY':
             return {
                 id: action.id || state.id,
@@ -24,7 +29,7 @@ const entries = (state = [], action) => {
         case 'ADD_ENTRY':
             return [
                 ...state,
-                entry(undefined, action),
+                entry(state, action),
             ];
         case 'DELETE_ENTRY': {
             const deletedEntry = state.findIndex((a) => {
@@ -39,7 +44,7 @@ const entries = (state = [], action) => {
                 return a.id === action.id;
             });
             const newState = [...state];
-            newState[updatedEntry] = entry(state[action.id], action);
+            newState[updatedEntry] = entry(state[updatedEntry], action);
             return newState;
         }
         default:
