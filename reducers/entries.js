@@ -19,6 +19,17 @@ const entry = (state, action) => {
                 date: action.date || state.date,
                 exercises: action.exercises || state.exercises,
             };
+        case 'ADD_EXERCISE_TO_ENTRY':
+            return {
+                ...state,
+                exercises: {
+                    ...state.exercises,
+                    [action.exercise]: {
+                        weight: action.weight,
+                        reps: action.reps,
+                    },
+                },
+            };
         default:
             return state;
     }
@@ -42,6 +53,14 @@ const entries = (state = [], action) => {
         case 'UPDATE_ENTRY': {
             const updatedEntry = state.findIndex((a) => {
                 return a.id === action.id;
+            });
+            const newState = [...state];
+            newState[updatedEntry] = entry(state[updatedEntry], action);
+            return newState;
+        }
+        case 'ADD_EXERCISE_TO_ENTRY': {
+            const updatedEntry = state.findIndex((a) => {
+                return a.id === action.entryId;
             });
             const newState = [...state];
             newState[updatedEntry] = entry(state[updatedEntry], action);

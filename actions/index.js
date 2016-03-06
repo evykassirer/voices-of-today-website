@@ -7,14 +7,23 @@ const addEntry = () => {
 const updateEntryDate = (id, date) => {
     return {
         type: 'UPDATE_ENTRY',
-        id: id,
-        date: date,
+        id,
+        date,
     };
 };
 const deleteEntry = (id) => {
     return {
         type: 'DELETE_ENTRY',
-        id: id,
+        id,
+    };
+};
+const addExerciseToEntry = (entryId, exercise, weight, reps) => {
+    return {
+        type: 'ADD_EXERCISE_TO_ENTRY',
+        entryId,
+        exercise,
+        weight,
+        reps,
     };
 };
 
@@ -26,19 +35,20 @@ const addExercise = () => {
 const updateExercise = (id, name) => {
     return {
         type: 'UPDATE_EXERCISE',
-        id: id,
-        name: name,
+        id,
+        name,
     };
 };
 const deleteExercise = (id) => {
     return {
         type: 'DELETE_EXERCISE',
-        id: id,
+        id,
     };
 };
 
 module.exports = {
     addEntry,
+    addExerciseToEntry,
     deleteEntry,
     updateEntryDate,
 

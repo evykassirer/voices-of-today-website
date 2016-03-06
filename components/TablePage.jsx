@@ -81,6 +81,7 @@ const TablePage = React.createClass({
             id: RP.number,
         })),
         addExercise: RP.func,
+        addExerciseToEntry: RP.func,
         addEntry: RP.func,
         deleteEntry: RP.func,
         deleteExercise: RP.func,
@@ -93,6 +94,7 @@ const TablePage = React.createClass({
             exercises,
             updateEntryDate,
             updateExercise,
+            addExerciseToEntry,
         } = this.props;
 
         const entries = this.props.entries;
@@ -182,24 +184,34 @@ const TablePage = React.createClass({
                                 </div>
                                 {exercises && exercises.map(
                                     (exercise, exerciseIdx) => {
-                                    const ex = entry.exercises[exercise.id];
+                                    const ex = entry.exercises[exercise.name];
                                     return <div
                                         className={css(ST.cell, ST.dataCell)}
                                         key={exerciseIdx}
                                     >
                                         <div className={css(ST.weight)}>
                                             <ClickToEdit
-                                                text={ex ? ex.weight : "(weight)"}
+                                                text={ex && ex.weight || "(weight)"}
                                                 onSubmit={(weight) => {
-                                                    console.log('weight')
+                                                    addExerciseToEntry(
+                                                        entry.id,
+                                                        exercise.name,
+                                                        weight,
+                                                        ex ? ex.reps : null
+                                                    )
                                                 }}
                                             />
                                         </div>
                                         <div className={css(ST.reps)}>
                                             <ClickToEdit
-                                                text={ex ? ex.reps : "(reps)"}
+                                                text={ex && ex.reps || "(reps)"}
                                                 onSubmit={(reps) => {
-                                                    console.log('reps')
+                                                    addExerciseToEntry(
+                                                        entry.id,
+                                                        exercise.name,
+                                                        ex ? ex.weight : null,
+                                                        reps
+                                                    )
                                                 }}
                                             />
                                         </div>

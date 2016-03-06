@@ -28,6 +28,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         updateEntryDate: (id, date) => {
             dispatch(actions.updateEntryDate(id, date));
         },
+        addExerciseToEntry: (entryId, exercise, weight, reps) => {
+            dispatch(actions.addExerciseToEntry(
+                entryId, exercise, weight, reps));
+        },
         addExercise: () => {
             dispatch(actions.addExercise());
         },
@@ -42,7 +46,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 App = connect(
     mapStateToProps,
-    mapDispatchToProps,
+    mapDispatchToProps
 )(App)
 
 module.exports = App;
