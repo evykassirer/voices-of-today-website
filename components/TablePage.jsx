@@ -44,16 +44,26 @@ const ClickToEdit = React.createClass({
             text
         } = this.state;
         if (this.state.isEditing) {
-            return <input
-                className={css(inputClass, ST.input)}
-                value={text}
-                onChange={this.handleOnChange}
-                onBlur={this.handleOnBlur}
-                autoFocus={true}
-                onFocus={this.handleOnFocus}
-            />
+            return <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    this.handleOnBlur();
+                }}
+            >
+                <input
+                    className={css(inputClass, ST.input)}
+                    value={text}
+                    onChange={this.handleOnChange}
+                    onBlur={this.handleOnBlur}
+                    autoFocus={true}
+                    onFocus={this.handleOnFocus}
+                />
+            </form>;
         }
-        return <span onClick={this.handleOnClick}>
+        return <span
+            className={css(ST.editableText)}
+            onClick={this.handleOnClick}
+        >
             {text}
         </span>;
     },
@@ -136,7 +146,7 @@ const TablePage = React.createClass({
                 </div>
                 <div className={css(ST.results)}>
                     <div className={css(ST.resultsInner)}>
-                        <div className={css(ST.column)}>
+                        <div className={css(ST.column, ST.addEntryColumn)}>
                             <div
                                 className={css(ST.cell)}
                             >
@@ -174,10 +184,25 @@ const TablePage = React.createClass({
                                     (exercise, exerciseIdx) => {
                                     const ex = entry.exercises[exercise.id];
                                     return <div
-                                        className={css(ST.cell)}
+                                        className={css(ST.cell, ST.dataCell)}
                                         key={exerciseIdx}
                                     >
-                                        {ex}
+                                        <div className={css(ST.weight)}>
+                                            <ClickToEdit
+                                                text={ex ? ex.weight : "(weight)"}
+                                                onSubmit={(weight) => {
+                                                    console.log('weight')
+                                                }}
+                                            />
+                                        </div>
+                                        <div className={css(ST.reps)}>
+                                            <ClickToEdit
+                                                text={ex ? ex.reps : "(reps)"}
+                                                onSubmit={(reps) => {
+                                                    console.log('reps')
+                                                }}
+                                            />
+                                        </div>
                                     </div>;
                                 })}
                                 <button
@@ -235,25 +260,38 @@ const ST = StyleSheet.create({
         borderRight: "1px solid #ddd",
         width: 120,
     },
+    addEntryColumn: {
+        width: 80,
+    },
     exerciseColumn: {
         width: 160,
     },
     exerciseCell: {
     },
     cell: {
-        height: 40,
+        height: 60,
         padding: 15,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
     },
+
+    dataCell: {
+        flexDirection: "column",
+    },
+
+    form: {
+
+    },
+    editableText: {
+        display: "inline-block",
+        padding: 4,
+    },
     input: {
         font: "inherit",
         fontSize: "inherit",
-        width: "100%",
-    },
-    dateInput: {
         textAlign: "center",
+        width: "100%",
     },
 
     deleteButton: {
