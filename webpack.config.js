@@ -1,4 +1,5 @@
 module.exports = {
+    devtool: "eval",
     entry: [
       'webpack-dev-server/client?http://0.0.0.0:8010',
       'webpack/hot/only-dev-server',
