@@ -10,9 +10,10 @@ module.exports = {
     module: {
         loaders: [
             {
-                // tell webpack to use babel for all *.jsx files
-                test: /\.jsx$/,
-                loaders: ['react-hot', 'babel-loader']
+                // tell webpack to use babel for all *.jsx and *.js files
+                test: /\.jsx?$/,
+                loaders: ['react-hot', 'babel-loader'],
+                exclude: /\/node_modules\/|\/lib\//
             },
         ],
     },
