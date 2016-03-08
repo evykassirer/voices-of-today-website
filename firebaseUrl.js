@@ -1,0 +1,1 @@
+module.exports = "https://fiery-heat-5035.firebaseio.com";

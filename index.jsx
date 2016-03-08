@@ -4,6 +4,8 @@ const { Provider } = require('react-redux');
 const { compose, createStore } = require('redux');
 const persistState = require('redux-localstorage');
 const mergePersistedState = persistState.mergePersistedState;
+const Firebase = require('firebase');
+const firebaseUrl = require('./firebaseUrl.js');
 
 const DevTools = require('./containers/DevTools.jsx');
 
@@ -14,12 +16,13 @@ const reducer = compose(
   mergePersistedState()
 )(rootReducer);
 
-const adapter = (storage) => ({
-  0: storage,
+const ref = new Firebase(firebaseUrl);
 
+const adapter = {
   put(key, value, callback) {
     try {
-      callback(null, storage.setItem(key, JSON.stringify(value)));
+      callback(null, window.localStorage.setItem(key, JSON.stringify(value)));
+      ref.update(key, value);
     } catch (e) {
       callback(e);
     }
@@ -27,7 +30,8 @@ const adapter = (storage) => ({
 
   get(key, callback) {
     try {
-      callback(null, JSON.parse(storage.getItem(key)));
+      callback(null, JSON.parse(window.localStorage.getItem(key)));
+      // TODO something like ref.value(key);
     } catch (e) {
       callback(e);
     }
@@ -35,17 +39,18 @@ const adapter = (storage) => ({
 
   del(key, callback) {
     try {
-      callback(null, storage.removeItem(key));
+      callback(null, window.localStorage.removeItem(key));
+      ref.set(key, null)
     } catch (e) {
       callback(e);
     }
   },
-});
+};
 
-const storage = compose()(adapter(window.localStorage));
+const storage = compose()(adapter);
 
 const createPersistentStore = compose(
-    persistState.default(storage, 'weight-lifting-app'),
+    persistState.default(storage, 'exercise-tracker-app'),
     DevTools.instrument()
 )(createStore);
 

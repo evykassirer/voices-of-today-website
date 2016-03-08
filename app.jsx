@@ -3,12 +3,23 @@ const { connect } = require('react-redux');
 
 const actions = require('./actions/index.js');
 const TablePage = require('./components/TablePage.jsx');
+const LoginPage = require('./components/LoginPage.jsx');
+
+const RP = React.PropTypes;
 
 let App = React.createClass({
     propTypes: {
+        user: RP.shape({
+            id: RP.string,
+        }),
+        entries: RP.array,
+        exercises: RP.array,
     },
 
     render: function() {
+        if (!this.props.user) {
+            return <LoginPage />;
+        }
         return <TablePage {...this.props} />;
     }
 });

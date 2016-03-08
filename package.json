@@ -27,6 +27,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "firebase": "^2.4.1",
     "moment": "^2.11.2",
     "react": "^0.14.1",
     "react-art": "^0.13.0",
