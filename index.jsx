@@ -22,7 +22,9 @@ const adapter = {
   put(key, value, callback) {
     try {
       callback(null, window.localStorage.setItem(key, JSON.stringify(value)));
-      ref.update(key, value);
+      // TODO: auth here, then set
+      const child = ref.child(value.user);
+      child.set(value);
     } catch (e) {
       callback(e);
     }

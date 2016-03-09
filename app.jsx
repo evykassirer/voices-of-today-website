@@ -18,7 +18,7 @@ let App = React.createClass({
 
     render: function() {
         if (!this.props.user) {
-            return <LoginPage />;
+            return <LoginPage login={this.props.login} />;
         }
         return <TablePage {...this.props} />;
     }
@@ -30,6 +30,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
+        login: (userId) => {
+            dispatch(actions.login(userId));
+        },
         addEntry: () => {
             dispatch(actions.addEntry());
         },

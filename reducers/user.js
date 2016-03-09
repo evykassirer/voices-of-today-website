@@ -1,7 +1,7 @@
 const user = (state = null, action) => {
     switch (action.type) {
         case 'LOGIN': {
-            return state;
+            return action.id;
         }
         default:
             return state;

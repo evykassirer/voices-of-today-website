@@ -1,4 +1,15 @@
 
+
+// Login
+const login = (id) => {
+    return {
+        type: 'LOGIN',
+        id: id,
+    };
+};
+
+
+// Entries
 const addEntry = () => {
     return {
         type: 'ADD_ENTRY',
@@ -27,6 +38,7 @@ const addExerciseToEntry = (entryId, exercise, weight, reps) => {
     };
 };
 
+// Exercises
 const addExercise = () => {
     return {
         type: 'ADD_EXERCISE',
@@ -47,6 +59,8 @@ const deleteExercise = (id) => {
 };
 
 module.exports = {
+    login,
+
     addEntry,
     addExerciseToEntry,
     deleteEntry,

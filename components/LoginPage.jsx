@@ -2,7 +2,12 @@ const React = require("react");
 
 const firebaseUrl = require('../firebaseUrl.js');
 
+const RP = React.PropTypes;
+
 const LoginPage = React.createClass({
+    propTypes: {
+        login: RP.func,
+    },
     getInitialState: function() {
         return {
             email: '',
@@ -11,16 +16,35 @@ const LoginPage = React.createClass({
     },
     onSubmit: function(e) {
         e.preventDefault();
+        this.createUser();
+    },
+    createUser: function() {
         const ref = new Firebase(firebaseUrl);
         ref.createUser({
                 email: this.state.email,
                 password: this.state.password,
-            }, function(error, userData) {
+            }, (error, userData) => {
             if (error) {
                 console.log("Error creating user:", error);
             } else {
+                this.login();
                 console.log("Successfully created user account with uid:",
                     userData.uid);
+            }
+        });
+    },
+    login: function() {
+        const ref = new Firebase(firebaseUrl);
+        ref.authWithPassword({
+                email: this.state.email,
+                password: this.state.password,
+            }, (error, authData) => {
+            if (error) {
+                console.log("Login Failed!", error);
+            } else {
+                this.props.login(authData);
+                console.log("Authenticated successfully with payload:",
+                    authData);
             }
         });
     },
