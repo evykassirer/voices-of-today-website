@@ -21,31 +21,44 @@ const ref = new Firebase(firebaseUrl);
 const adapter = {
   put(key, value, callback) {
     try {
-      callback(null, window.localStorage.setItem(key, JSON.stringify(value)));
+      //callback(null, window.localStorage.setItem(key, JSON.stringify(value)));
       // TODO: auth here, then set
-      const child = ref.child(value.user);
-      child.set(value);
+      const user = ref.getAuth();
+      const child = ref.child(user.uid);
+      callback(null, child.set(value));
     } catch (e) {
-      callback(e);
+      callback(null, e);
     }
   },
 
   get(key, callback) {
     try {
-      callback(null, JSON.parse(window.localStorage.getItem(key)));
-      // TODO something like ref.value(key);
+      //callback(null, JSON.parse(window.localStorage.getItem(key)));
+      const user = ref.getAuth();
+      if (user) {
+        const child = ref.child(user.uid);
+        console.log(child.once("value"))
+        child.once("value").then((data) => {
+          console.log(data)
+          callback(null, {
+            uid: user.uid,
+            ...data,
+          });
+        }).catch((e) => {
+          console.log(e)
+        });
+      }
+      else {
+        console.log('hi')
+        return callback(null, {});
+      }
     } catch (e) {
       callback(e);
     }
   },
 
   del(key, callback) {
-    try {
-      callback(null, window.localStorage.removeItem(key));
-      ref.set(key, null)
-    } catch (e) {
-      callback(e);
-    }
+    // ???
   },
 };
 

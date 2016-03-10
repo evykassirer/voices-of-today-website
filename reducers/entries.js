@@ -3,6 +3,7 @@ const moment = require('moment');
 const entry = (state, action) => {
     switch (action.type) {
         case 'ADD_ENTRY': {
+            console.log('adding entry')
             let highestId = 0;
             state.forEach((entry) => {
                 highestId = entry.id > highestId ? entry.id : highestId;

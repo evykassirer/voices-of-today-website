@@ -9,15 +9,13 @@ const RP = React.PropTypes;
 
 let App = React.createClass({
     propTypes: {
-        user: RP.shape({
-            id: RP.string,
-        }),
+        uid: RP.string,
         entries: RP.array,
         exercises: RP.array,
     },
 
     render: function() {
-        if (!this.props.user) {
+        if (!this.props.uid) {
             return <LoginPage login={this.props.login} />;
         }
         return <TablePage {...this.props} />;
