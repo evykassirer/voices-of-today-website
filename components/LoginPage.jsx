@@ -1,3 +1,4 @@
+const { StyleSheet, css } = require('../lib/aphrodite.js');
 const React = require("react");
 
 const firebaseUrl = require('../firebaseUrl.js');
@@ -49,10 +50,12 @@ const LoginPage = React.createClass({
         });
     },
     render: function() {
-        return <div>
-            <form onSubmit={this.onSubmit}>
+        return <div className={css(ST.wrapper)}>
+            <form onSubmit={this.onSubmit} className={css(ST.form)}>
+                <h1 className={css(ST.title)}>Exercise Tracker</h1>
                 <div>
                     <input
+                        className={css(ST.input)}
                         value={this.state.email}
                         onChange={(e) => {
                             this.setState({ email: e.target.value });
@@ -61,6 +64,7 @@ const LoginPage = React.createClass({
                 </div>
                 <div>
                     <input
+                        className={css(ST.input)}
                         value={this.state.password}
                         type="password"
                         onChange={(e) => {
@@ -68,9 +72,41 @@ const LoginPage = React.createClass({
                         }}
                     />
                 </div>
-                <input type="submit"/>
+                <div>
+                    <input
+                        className={css(ST.input, ST.submit)}
+                        type="submit"
+                    />
+                </div>
             </form>
         </div>;
+    }
+});
+
+const ST = StyleSheet.create({
+    wrapper: {
+        display: "flex",
+        justifyContent: "center",
+    },
+    title: {
+        fontSize: 30,
+        textAlign: "center",
+        marginTop: 50,
+        marginBottom: 20,
+    },
+    form: {
+        maxWidth: 300,
+    },
+    input: {
+        fontSize: 14,
+        marginBottom: 5,
+        marginTop: 5,
+        padding: "10px 15px",
+        width: "100%",
+    },
+    submit: {
+        background: "#eee",
+        border: "none",
     }
 });
 
