@@ -184,7 +184,8 @@ const TablePage = React.createClass({
                                 </div>
                                 {exercises && exercises.map(
                                     (exercise, exerciseIdx) => {
-                                    const ex = entry.exercises[exercise.name];
+                                    const ex = entry.exercises &&
+                                        entry.exercises[exercise.exId];
                                     return <div
                                         className={css(ST.cell, ST.dataCell)}
                                         key={exerciseIdx}
@@ -195,7 +196,7 @@ const TablePage = React.createClass({
                                                 onSubmit={(weight) => {
                                                     addExerciseToEntry(
                                                         entry.id,
-                                                        exercise.name,
+                                                        exercise.exId,
                                                         weight,
                                                         ex ? ex.reps : null
                                                     )

@@ -28,11 +28,11 @@ const deleteEntry = (id) => {
         id,
     };
 };
-const addExerciseToEntry = (entryId, exercise, weight, reps) => {
+const addExerciseToEntry = (entryId, exerciseId, weight, reps) => {
     return {
         type: 'ADD_EXERCISE_TO_ENTRY',
         entryId,
-        exercise,
+        exerciseId,
         weight,
         reps,
     };

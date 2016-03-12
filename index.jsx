@@ -21,13 +21,11 @@ const ref = new Firebase(firebaseUrl);
 const adapter = {
   put(key, value, callback) {
     try {
-      //callback(null, window.localStorage.setItem(key, JSON.stringify(value)));
-      // TODO: auth here, then set
       const user = ref.getAuth();
-      const child = ref.child(user.uid);
-      callback(null, child.set(value));
+      const child = ref.child("users").child(user.uid);
+      child.update(value);
     } catch (e) {
-      callback(null, e);
+      callback(e);
     }
   },
 
@@ -36,21 +34,18 @@ const adapter = {
       //callback(null, JSON.parse(window.localStorage.getItem(key)));
       const user = ref.getAuth();
       if (user) {
-        const child = ref.child(user.uid);
-        console.log(child.once("value"))
+        const child = ref.child("users").child(user.uid);
         child.once("value").then((data) => {
-          console.log(data)
+          const exercises = data.child("exercises").val();
+          const entries = data.child("entries").val();
           callback(null, {
-            uid: user.uid,
-            ...data,
+            user: user.uid,
+            exercises: exercises || [],
+            entries: entries || [],
           });
         }).catch((e) => {
-          console.log(e)
+          callback(e, {});
         });
-      }
-      else {
-        console.log('hi')
-        return callback(null, {});
       }
     } catch (e) {
       callback(e);

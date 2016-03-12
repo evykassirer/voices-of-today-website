@@ -13,6 +13,7 @@ const LoginPage = React.createClass({
         return {
             email: '',
             password: '',
+            error: null,
         };
     },
     onSubmit: function(e) {
@@ -27,6 +28,9 @@ const LoginPage = React.createClass({
             }, (error, userData) => {
             if (error) {
                 console.log("Error creating user:", error);
+                this.setState({
+                    error: error.message,
+                });
             } else {
                 this.login();
                 console.log("Successfully created user account with uid:",
@@ -42,10 +46,16 @@ const LoginPage = React.createClass({
             }, (error, authData) => {
             if (error) {
                 console.log("Login Failed!", error);
+                this.setState({
+                    error: error.message,
+                });
             } else {
-                this.props.login(authData);
+                this.props.login();
                 console.log("Authenticated successfully with payload:",
                     authData);
+                this.setState({
+                    error: null,
+                });
             }
         });
     },
@@ -53,6 +63,9 @@ const LoginPage = React.createClass({
         return <div className={css(ST.wrapper)}>
             <form onSubmit={this.onSubmit} className={css(ST.form)}>
                 <h1 className={css(ST.title)}>Exercise Tracker</h1>
+                {this.state.error && <div className={css(ST.error)}>
+                    {this.state.error}
+                </div>}
                 <div>
                     <input
                         className={css(ST.input)}
@@ -117,6 +130,15 @@ const ST = StyleSheet.create({
             outline: "none",
         },
     },
+    error: {
+        background: "#F9E6EF",
+        border: "1px solid red",
+        color: "#ca337c",
+        padding: "10px 15px",
+        lineHeight: 1.2,
+        fontSize: 14,
+        marginBottom: 5,
+    },
     submit: {
         background: "#ca337c",
         border: "none",
@@ -127,6 +149,11 @@ const ST = StyleSheet.create({
         fontWeight: "normal",
         ":hover": {
             background: "#9e034e",
+        },
+        ":focus": {
+            background: "#9e034e",
+            border: "none",
+            boxShadow: "none",
         },
     }
 });

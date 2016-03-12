@@ -7,12 +7,13 @@ const exercise = (state, action) => {
             });
             return {
                 id: highestId + 1,
+                exId: `ex-${highestId + 1}`,
                 name: 'new exercise',
             };
         }
         case 'UPDATE_EXERCISE':
             return {
-                id: action.id || state.id,
+                ...state,
                 name: action.name || state.name,
             };
         default:
