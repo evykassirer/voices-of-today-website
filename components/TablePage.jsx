@@ -8,6 +8,8 @@ const RP = React.PropTypes;
 const ClickToEdit = React.createClass({
     propTypes: {
         text: RP.string,
+        placeholder: RP.string,
+        textClass: RP.object,
         inputClass: RP.object,
     },
     getInitialState: function() {
@@ -38,6 +40,7 @@ const ClickToEdit = React.createClass({
     render: function() {
         const {
             inputClass,
+            placeholder,
             textClass,
         } = this.props;
         const {
@@ -53,6 +56,7 @@ const ClickToEdit = React.createClass({
                 <input
                     className={css(inputClass, ST.input)}
                     value={text}
+                    placeholder={placeholder}
                     onChange={this.handleOnChange}
                     onBlur={this.handleOnBlur}
                     autoFocus={true}
@@ -61,10 +65,10 @@ const ClickToEdit = React.createClass({
             </form>;
         }
         return <span
-            className={css(ST.editableText)}
+            className={css(ST.editableText, !text && ST.placeholderText)}
             onClick={this.handleOnClick}
         >
-            {text}
+            {text || placeholder}
         </span>;
     },
 });
@@ -192,12 +196,13 @@ const TablePage = React.createClass({
                                     >
                                         <div className={css(ST.weight)}>
                                             <ClickToEdit
-                                                text={ex && ex.weight || "(weight)"}
+                                                text={ex && ex.weight}
+                                                placeholder="(weight)"
                                                 onSubmit={(weight) => {
                                                     addExerciseToEntry(
                                                         entry.id,
                                                         exercise.exId,
-                                                        weight,
+                                                        weight || null,
                                                         ex ? ex.reps : null
                                                     )
                                                 }}
@@ -205,13 +210,14 @@ const TablePage = React.createClass({
                                         </div>
                                         <div className={css(ST.reps)}>
                                             <ClickToEdit
-                                                text={ex && ex.reps || "(reps)"}
+                                                text={ex && ex.reps}
+                                                placeholder={"(reps)"}
                                                 onSubmit={(reps) => {
                                                     addExerciseToEntry(
                                                         entry.id,
                                                         exercise.name,
                                                         ex ? ex.weight : null,
-                                                        reps
+                                                        reps || null
                                                     )
                                                 }}
                                             />
@@ -299,6 +305,9 @@ const ST = StyleSheet.create({
     editableText: {
         display: "inline-block",
         padding: 4,
+    },
+    placeholderText: {
+        color: "#999",
     },
     input: {
         font: "inherit",

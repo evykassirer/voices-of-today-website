@@ -25,8 +25,8 @@ const entry = (state, action) => {
                 exercises: {
                     ...state.exercises,
                     [action.exerciseId]: {
-                        weight: action.weight,
-                        reps: action.reps,
+                        weight: action.weight || null,
+                        reps: action.reps || null,
                     },
                 },
             };
