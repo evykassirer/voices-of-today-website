@@ -29,11 +29,11 @@ const exercises = (state = [], action) => {
                 exercise(state, action),
             ];
         case 'DELETE_EXERCISE': {
-            const deletedExercse = state.findIndex((a) => {
+            const deletedExercisePos = state.findIndex((a) => {
                 return a.id === action.id;
             });
             const newState = [...state];
-            newState.splice(deletedExercse, 1);
+            newState.splice(deletedExercisePos, 1);
             return newState;
         }
         case 'UPDATE_EXERCISE': {

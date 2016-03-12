@@ -114,7 +114,7 @@ const TablePage = React.createClass({
                     </div>
                     {exercises && exercises.map((exercise, idx) => {
                         return <div
-                            key={idx}
+                            key={exercise.id}
                             className={css(ST.cell)}
                         >
                             <ClickToEdit
@@ -188,7 +188,7 @@ const TablePage = React.createClass({
                                         entry.exercises[exercise.exId];
                                     return <div
                                         className={css(ST.cell, ST.dataCell)}
-                                        key={exerciseIdx}
+                                        key={exercise.id}
                                     >
                                         <div className={css(ST.weight)}>
                                             <ClickToEdit
