@@ -96,17 +96,34 @@ const ST = StyleSheet.create({
     },
     form: {
         maxWidth: 300,
+        flex: 1,
     },
     input: {
+        background: "#fff",
+        border: "1px solid #ddd",
         fontSize: 14,
         marginBottom: 5,
         marginTop: 5,
         padding: "10px 15px",
+        transition: "box-shadow 0.1s ease-out",
         width: "100%",
+        ":focus": {
+            borderColor: "#ca337c",
+            boxShadow: "0 0 0 2px #ca337c",
+            outline: "none",
+        },
     },
     submit: {
-        background: "#eee",
+        background: "#ca337c",
         border: "none",
+        borderRadius: 2,
+        color: "#fff",
+        cursor: "pointer",
+        fontSize: 16,
+        fontWeight: "normal",
+        ":hover": {
+            background: "#9e034e",
+        },
     }
 });
 
