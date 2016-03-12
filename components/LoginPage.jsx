@@ -56,6 +56,7 @@ const LoginPage = React.createClass({
                 <div>
                     <input
                         className={css(ST.input)}
+                        placeholder="Email"
                         value={this.state.email}
                         onChange={(e) => {
                             this.setState({ email: e.target.value });
@@ -67,6 +68,7 @@ const LoginPage = React.createClass({
                         className={css(ST.input)}
                         value={this.state.password}
                         type="password"
+                        placeholder="Password"
                         onChange={(e) => {
                             this.setState({ password: e.target.value });
                         }}
@@ -76,6 +78,7 @@ const LoginPage = React.createClass({
                     <input
                         className={css(ST.input, ST.submit)}
                         type="submit"
+                        value="Login / Signup"
                     />
                 </div>
             </form>
@@ -102,6 +105,7 @@ const ST = StyleSheet.create({
         background: "#fff",
         border: "1px solid #ddd",
         fontSize: 14,
+        fontFamily: "inherit",
         marginBottom: 5,
         marginTop: 5,
         padding: "10px 15px",
