@@ -15,10 +15,10 @@ const ClickToEdit = React.createClass({
     getInitialState: function() {
         return {
             isEditing: false,
-            text: this.props.text,
+            text: this.props.text || "",
         };
     },
-    handleOnClick: function() {
+    setEditing: function() {
         this.setState({
             isEditing: true,
         });
@@ -35,7 +35,7 @@ const ClickToEdit = React.createClass({
         });
     },
     handleOnFocus: function(e) {
-        e.target.setSelectionRange(0, e.target.value.length);
+        e.target.setSelectionRange(0, this.state.text.length);
     },
     render: function() {
         const {
@@ -66,7 +66,9 @@ const ClickToEdit = React.createClass({
         }
         return <span
             className={css(ST.editableText, !text && ST.placeholderText)}
-            onClick={this.handleOnClick}
+            onClick={this.setEditing}
+            onFocus={this.setEditing}
+            tabIndex={0}
         >
             {text || placeholder}
         </span>;
@@ -215,7 +217,7 @@ const TablePage = React.createClass({
                                                 onSubmit={(reps) => {
                                                     addExerciseToEntry(
                                                         entry.id,
-                                                        exercise.name,
+                                                        exercise.exId,
                                                         ex ? ex.weight : null,
                                                         reps || null
                                                     )
