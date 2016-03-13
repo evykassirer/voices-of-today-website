@@ -27,14 +27,16 @@ const LoginPage = React.createClass({
                 password: this.state.password,
             }, (error, userData) => {
             if (error) {
-                console.log("Error creating user:", error);
+                if (error.message ===
+                        "The specified email address is already in use.") {
+                    this.login();
+                    return;
+                }
                 this.setState({
                     error: error.message,
                 });
             } else {
                 this.login();
-                console.log("Successfully created user account with uid:",
-                    userData.uid);
             }
         });
     },
@@ -45,14 +47,11 @@ const LoginPage = React.createClass({
                 password: this.state.password,
             }, (error, authData) => {
             if (error) {
-                console.log("Login Failed!", error);
                 this.setState({
                     error: error.message,
                 });
             } else {
-                this.props.login();
-                console.log("Authenticated successfully with payload:",
-                    authData);
+                this.props.login(authData.uid);
                 this.setState({
                     error: null,
                 });

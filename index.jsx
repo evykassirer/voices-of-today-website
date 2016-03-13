@@ -46,6 +46,8 @@ const adapter = {
         }).catch((e) => {
           callback(e, {});
         });
+      } else {
+        callback(null, {});
       }
     } catch (e) {
       callback(e);
