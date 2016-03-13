@@ -234,17 +234,6 @@ const TablePage = React.createClass({
                                 >&times; Delete Entry</button>
                             </div>;
                         })}
-                        <div className={css(ST.column)}>
-                            <div
-                                className={css(ST.cell)}
-                            >
-                                <button
-                                    onClick={() => {
-                                        this.props.addEntry();
-                                    }}
-                                >Add Entry</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
