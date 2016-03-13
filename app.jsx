@@ -8,6 +8,8 @@ const actions = require('./actions/index.js');
 const TablePage = require('./components/TablePage.jsx');
 const LoginPage = require('./components/LoginPage.jsx');
 
+const ref = new Firebase(firebaseUrl);
+
 const RP = React.PropTypes;
 
 let App = React.createClass({
@@ -32,7 +34,6 @@ let App = React.createClass({
     },
 
     loadUserData: function() {
-        const ref = new Firebase(firebaseUrl);
         const user = ref.getAuth();
         if (!this.props.user && user) {
             this.props.login(user.uid);
@@ -49,7 +50,6 @@ let App = React.createClass({
         }
     },
     saveUserData: function() {
-        const ref = new Firebase(firebaseUrl);
         if (this.props.exercises.length || this.props.entries.length) {
             const user = ref.getAuth();
             const child = ref.child("users").child(user.uid);
@@ -60,11 +60,19 @@ let App = React.createClass({
         }
     },
 
+    logout: function() {
+        this.props.logout();
+        ref.unauth();
+    },
+
     render: function() {
         if (!this.props.user) {
-            return <LoginPage login={this.props.login} />;
+            return <LoginPage
+                login={this.props.login}
+                logout={this.props.logout}
+            />;
         }
-        return <TablePage {...this.props} />;
+        return <TablePage {...this.props} logout={this.logout} />;
     }
 });
 
@@ -80,6 +88,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
         login: (userId) => {
             dispatch(actions.login(userId));
+        },
+        logout: () => {
+            dispatch(actions.logout());
         },
         addEntry: () => {
             dispatch(actions.addEntry());

@@ -110,6 +110,14 @@ const TablePage = React.createClass({
         });
 
         return (<div className={css(ST.page)}>
+            <div>
+                <button onClick={() => {
+                    this.props.logout()
+                }}>
+                    Logout
+                </button>
+            </div>
+
             <h1 className={css(ST.title)}>Weight Lifting Tracker</h1>
 
             <div className={css(ST.table)}>

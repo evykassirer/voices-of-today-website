@@ -7,6 +7,11 @@ const login = (id) => {
     };
 };
 
+const logout = () => {
+    return {
+        type: 'LOGOUT',
+    };
+};
 
 // Entries
 const loadEntries = (entries) => {
@@ -71,6 +76,7 @@ const deleteExercise = (id) => {
 
 module.exports = {
     login,
+    logout,
 
     loadEntries,
     addEntry,

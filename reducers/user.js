@@ -3,6 +3,9 @@ const user = (state = null, action) => {
         case 'LOGIN': {
             return action.id;
         }
+        case 'LOGOUT': {
+            return null;
+        }
         default:
             return state;
     }
