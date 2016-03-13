@@ -8,7 +8,7 @@ const exercise = (state, action) => {
             return {
                 id: highestId + 1,
                 exId: `ex-${highestId + 1}`,
-                name: 'new exercise',
+                name: action.name || 'new exercise',
             };
         }
         case 'UPDATE_EXERCISE':

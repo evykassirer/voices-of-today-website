@@ -107,8 +107,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(actions.addExerciseToEntry(
                 entryId, exercise, weight, reps));
         },
-        addExercise: () => {
-            dispatch(actions.addExercise());
+        addExercise: (name) => {
+            dispatch(actions.addExercise(name));
         },
         deleteExercise: (id) => {
             dispatch(actions.deleteExercise(id));

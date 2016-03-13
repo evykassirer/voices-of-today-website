@@ -59,12 +59,19 @@ const domainColors = {
     },
 };
 
+const exerciseOptions = [
+    'overhead-delt',
+];
 
 const ExerciseImage = React.createClass({
     propTypes: {
         type: React.PropTypes.string,
         height: React.PropTypes.number,
         color: React.PropTypes.string,
+    },
+
+    statics: {
+        exerciseOptions: () => exerciseOptions,
     },
 
     getInitialState: function() {
@@ -91,12 +98,15 @@ const ExerciseImage = React.createClass({
     stopAnimation: function() {
         window.clearInterval(this.animationInterval);
     },
+    componentWillUnmount: function() {
+        window.clearInterval(this.animationInterval);
+    },
 
     renderExerciseImage: function(ex) {
         const personColor = domainColors[this.props.color].darkest;
         const weightColor = domainColors[this.props.color].dark;
 
-        const exerciseImages = {
+    const exerciseImages = {
             'overhead-delt': [
                 <g>
                     <path fill={personColor} d="M69.7,23.8v13.3H31.8l0-13.3l-5,0l0,15.8c0,0.7,0.3,1.3,0.7,1.8c0.5,0.5,1.1,0.7,1.8,0.7h12.3V60h18.2V42.1h12.3
@@ -120,11 +130,11 @@ const ExerciseImage = React.createClass({
                         V7.2c0-0.8,0.7-1.5,1.5-1.5h1.4c0.8,0,1.5,0.7,1.5,1.5v1.7h8.1V7.2c0-0.8,0.7-1.5,1.5-1.5h1.4c0.8,0,1.5,0.7,1.5,1.5v7.7
                         C43.8,15.7,43.1,16.4,42.3,16.4z"/>
                 </g>,
-                ],
+            ],
+        };
 
-            };
-
-        return exerciseImages[ex] && exerciseImages[ex][this.state.animationFrame];
+        return exerciseImages[ex] &&
+            exerciseImages[ex][this.state.animationFrame];
     },
     render: function() {
         const style = {

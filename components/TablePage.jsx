@@ -2,6 +2,8 @@ const { StyleSheet, css } = require('../lib/aphrodite.js');
 const React = require('react');
 const moment = require('moment');
 
+const ExerciseImage = require('./ExerciseImage.jsx');
+const ExerciseModal = require('./ExerciseModal.jsx');
 
 const RP = React.PropTypes;
 
@@ -95,6 +97,27 @@ const TablePage = React.createClass({
         updateExercise: RP.func,
     },
 
+    getInitialState: function() {
+        return {
+            showExerciseModal: false,
+        };
+    },
+    addExercise: function(exercise) {
+        this.props.addExercise(exercise);
+        this.hideExerciseModal();
+    },
+
+    showExerciseModal: function() {
+        this.setState({
+            showExerciseModal: true,
+        });
+    },
+    hideExerciseModal: function() {
+        this.setState({
+            showExerciseModal: false,
+        });
+    },
+
     render: function() {
         const {
             exercises,
@@ -110,6 +133,10 @@ const TablePage = React.createClass({
         });
 
         return (<div className={css(ST.page)}>
+            {this.state.showExerciseModal && <ExerciseModal
+                close={this.hideExerciseModal}
+                addExercise={this.addExercise}
+            />}
             <div>
                 <button onClick={() => {
                     this.props.logout()
@@ -129,32 +156,33 @@ const TablePage = React.createClass({
                     {exercises && exercises.map((exercise, idx) => {
                         return <div
                             key={exercise.id}
-                            className={css(ST.cell)}
+                            className={css(ST.cell, ST.exerciseCell)}
                         >
-                            <ClickToEdit
-                                text={exercise.name}
-                                onSubmit={(newName) => {
-                                    updateExercise(
-                                        exercise.id,
-                                        newName
-                                    );
-                                }}
-                            />
-                            <button
-                                className={css(ST.deleteButton)}
-                                onClick={() => {
-                                    this.props.deleteExercise(exercise.id);
-                                }}
-                            >&times;</button>
+                            <ExerciseImage type={exercise.name} />
+                            <div>
+                                <ClickToEdit
+                                    text={exercise.name}
+                                    onSubmit={(newName) => {
+                                        updateExercise(
+                                            exercise.id,
+                                            newName
+                                        );
+                                    }}
+                                />
+                                <button
+                                    className={css(ST.deleteButton)}
+                                    onClick={() => {
+                                        this.props.deleteExercise(exercise.id);
+                                    }}
+                                >&times;</button>
+                            </div>
                         </div>;
                     })}
                     <div
                         className={css(ST.cell)}
                     >
                         <button
-                            onClick={() => {
-                                this.props.addExercise();
-                            }}
+                            onClick={this.showExerciseModal}
                         >
                             Add Exercise
                         </button>
@@ -285,9 +313,10 @@ const ST = StyleSheet.create({
         width: 160,
     },
     exerciseCell: {
+        flexDirection: "column",
     },
     cell: {
-        height: 60,
+        height: 100,
         padding: 15,
         display: "flex",
         alignItems: "center",

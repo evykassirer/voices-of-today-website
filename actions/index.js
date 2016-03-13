@@ -55,9 +55,10 @@ const loadExercises = (exercises) => {
         exercises: exercises,
     };
 };
-const addExercise = () => {
+const addExercise = (name) => {
     return {
         type: 'ADD_EXERCISE',
+        name: name,
     };
 };
 const updateExercise = (id, name) => {
