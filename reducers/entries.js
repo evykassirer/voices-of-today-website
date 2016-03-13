@@ -38,7 +38,7 @@ const entry = (state, action) => {
 const entries = (state = [], action) => {
     switch (action.type) {
         case 'LOAD_ENTRIES':
-            return action.entries;
+            return action.entries || [];
         case 'ADD_ENTRY':
             return [
                 ...state,

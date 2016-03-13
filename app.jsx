@@ -90,6 +90,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(actions.login(userId));
         },
         logout: () => {
+            dispatch(actions.loadExercises(null));
+            dispatch(actions.loadEntries(null));
             dispatch(actions.logout());
         },
         addEntry: () => {
