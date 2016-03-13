@@ -1,6 +1,7 @@
 const { StyleSheet, css } = require('../lib/aphrodite.js');
 const React = require("react");
 
+const Firebase = require('firebase');
 const firebaseUrl = require('../firebaseUrl.js');
 
 const RP = React.PropTypes;
@@ -30,11 +31,11 @@ const LoginPage = React.createClass({
                 if (error.message ===
                         "The specified email address is already in use.") {
                     this.login();
-                    return;
+                } else {
+                    this.setState({
+                        error: error.message,
+                    });
                 }
-                this.setState({
-                    error: error.message,
-                });
             } else {
                 this.login();
             }
@@ -51,10 +52,9 @@ const LoginPage = React.createClass({
                     error: error.message,
                 });
             } else {
-                this.props.login(authData.uid);
                 this.setState({
                     error: null,
-                });
+                }, () => this.props.login(authData.uid));
             }
         });
     },

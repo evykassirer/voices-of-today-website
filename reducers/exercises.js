@@ -23,6 +23,8 @@ const exercise = (state, action) => {
 
 const exercises = (state = [], action) => {
     switch (action.type) {
+        case 'LOAD_EXERCISES':
+            return action.exercises;
         case 'ADD_EXERCISE':
             return [
                 ...state,

@@ -1,6 +1,5 @@
 
-
-// Login
+// User actions
 const login = (id) => {
     return {
         type: 'LOGIN',
@@ -10,6 +9,12 @@ const login = (id) => {
 
 
 // Entries
+const loadEntries = (entries) => {
+    return {
+        type: 'LOAD_ENTRIES',
+        entries: entries,
+    };
+};
 const addEntry = () => {
     return {
         type: 'ADD_ENTRY',
@@ -39,6 +44,12 @@ const addExerciseToEntry = (entryId, exerciseId, weight, reps) => {
 };
 
 // Exercises
+const loadExercises = (exercises) => {
+    return {
+        type: 'LOAD_EXERCISES',
+        exercises: exercises,
+    };
+};
 const addExercise = () => {
     return {
         type: 'ADD_EXERCISE',
@@ -61,11 +72,13 @@ const deleteExercise = (id) => {
 module.exports = {
     login,
 
+    loadEntries,
     addEntry,
     addExerciseToEntry,
     deleteEntry,
     updateEntryDate,
 
+    loadExercises,
     addExercise,
     updateExercise,
     deleteExercise,
