@@ -159,23 +159,24 @@ const TablePage = React.createClass({
                             className={css(ST.cell, ST.exerciseCell)}
                         >
                             <ExerciseImage type={exercise.name} />
-                            <div>
-                                <ClickToEdit
-                                    text={exercise.name}
-                                    onSubmit={(newName) => {
-                                        updateExercise(
-                                            exercise.id,
-                                            newName
-                                        );
-                                    }}
-                                />
-                                <button
-                                    className={css(ST.deleteButton)}
-                                    onClick={() => {
-                                        this.props.deleteExercise(exercise.id);
-                                    }}
-                                >&times;</button>
-                            </div>
+                            <ClickToEdit
+                                text={exercise.name}
+                                onSubmit={(newName) => {
+                                    updateExercise(
+                                        exercise.id,
+                                        newName
+                                    );
+                                }}
+                            />
+                            <button
+                                className={css(
+                                    ST.deleteButton,
+                                    ST.exerciseDeleteButton
+                                )}
+                                onClick={() => {
+                                    this.props.deleteExercise(exercise.id);
+                                }}
+                            >&times;</button>
                         </div>;
                     })}
                     <div
@@ -314,6 +315,7 @@ const ST = StyleSheet.create({
     },
     exerciseCell: {
         flexDirection: "column",
+        position: "relative",
     },
     cell: {
         height: 100,
@@ -350,6 +352,11 @@ const ST = StyleSheet.create({
         color: "#999",
         cursor: "pointer",
         fontSize: 16,
+    },
+    exerciseDeleteButton: {
+        position: "absolute",
+        top: 2,
+        right: 2,
     },
 });
 

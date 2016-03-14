@@ -24,6 +24,7 @@ const ExerciseModal = React.createClass({
                     {exercises.map((exercise) => {
                         return <div
                             key={exercise}
+                            className={css(ST.exercise)}
                             onClick={() => {
                                 this.props.addExercise(exercise);
                             }}
@@ -45,7 +46,7 @@ const ST = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         left: 0,
-        position: "absolute",
+        position: "fixed",
         right: 0,
         top: 0,
     },
@@ -77,7 +78,21 @@ const ST = StyleSheet.create({
     },
 
     exercises: {
+        justifyContent: "center",
+        display: "flex",
+        flexWrap: "wrap",
         marginTop: 20,
+    },
+    exercise: {
+        cursor: "pointer",
+        opacity: 0.6,
+        padding: 2,
+        ":hover": {
+            opacity: 1,
+        },
+    },
+    newExercise: {
+
     },
 });
 
