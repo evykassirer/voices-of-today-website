@@ -7,6 +7,7 @@ module.exports = {
     ],
     output: {
         filename: 'bundle.js',
+        publicPath: 'http://localhost:8010/assets',
     },
     module: {
         loaders: [
