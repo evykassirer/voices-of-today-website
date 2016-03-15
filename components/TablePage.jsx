@@ -37,7 +37,7 @@ const ClickToEdit = React.createClass({
         });
     },
     handleOnFocus: function(e) {
-        e.target.setSelectionRange(0, this.state.text.length);
+        e.target.setSelectionRange(this.state.text.length, this.state.text.length);
     },
     render: function() {
         const {
