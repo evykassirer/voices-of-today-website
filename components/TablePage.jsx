@@ -14,6 +14,11 @@ const ClickToEdit = React.createClass({
         textClass: RP.object,
         inputClass: RP.object,
     },
+    getDefaultProps: function() {
+        return {
+            selectAllOnClick: false,
+        };
+    },
     getInitialState: function() {
         return {
             isEditing: false,
@@ -37,7 +42,12 @@ const ClickToEdit = React.createClass({
         });
     },
     handleOnFocus: function(e) {
-        e.target.setSelectionRange(this.state.text.length, this.state.text.length);
+        const textLength = this.state.text.length;
+        if (this.props.selectAllOnClick) {
+            e.target.setSelectionRange(0, textLength);
+        } else {
+            e.target.setSelectionRange(textLength, textLength);
+        }
     },
     render: function() {
         const {
@@ -215,6 +225,7 @@ const TablePage = React.createClass({
                                         text={
                                             moment(entry.date).format('MMM Do')
                                         }
+                                        selectAllOnClick={true}
                                         onSubmit={(newDate) => {
                                             updateEntryDate(
                                                 entry.id,
