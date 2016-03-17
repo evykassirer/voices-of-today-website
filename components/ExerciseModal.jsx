@@ -49,6 +49,7 @@ const ST = StyleSheet.create({
         position: "fixed",
         right: 0,
         top: 0,
+        zIndex: 10,
     },
     heading: {
         fontSize: 20,
