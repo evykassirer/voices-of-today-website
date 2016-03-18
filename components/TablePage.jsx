@@ -4,6 +4,7 @@ const moment = require('moment');
 
 const ExerciseImage = require('./ExerciseImage.jsx');
 const ExerciseModal = require('./ExerciseModal.jsx');
+const Icon = require('./Icon.jsx');
 
 const RP = React.PropTypes;
 
@@ -213,11 +214,17 @@ const TablePage = React.createClass({
                                 className={css(ST.cell)}
                             >
                                 <button
-                                    className={css(ST.button)}
+                                    className={css(ST.button, ST.plusButton)}
                                     onClick={() => {
                                         this.props.addEntry();
                                     }}
-                                >Add Entry</button>
+                                >
+                                    <Icon
+                                        type="plus"
+                                        size={15}
+                                        color="#bbb"
+                                    />
+                                </button>
                             </div>
                         </div>
                         {entries && entries.map((entry, entryIdx) => {
@@ -327,7 +334,7 @@ const ST = StyleSheet.create({
         width: 120,
     },
     addEntryColumn: {
-        width: 80,
+        width: 60,
     },
     exerciseColumn: {
         width: 160,
@@ -383,10 +390,20 @@ const ST = StyleSheet.create({
         border: "1px solid #ddd",
         borderRadius: 50,
         cursor: "pointer",
-        padding: 10,
+        padding: "10px 20px",
         ":hover": {
             background: "#ddd",
         },
+    },
+
+    plusButton: {
+        height: 30,
+        lineHeight: 0,
+        width: 30,
+        padding: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
     },
 });
 
