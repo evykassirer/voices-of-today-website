@@ -9,12 +9,18 @@ const exercise = (state, action) => {
                 id: highestId + 1,
                 exId: `ex-${highestId + 1}`,
                 name: action.name || 'new exercise',
+                deleted: false,
             };
         }
         case 'UPDATE_EXERCISE':
             return {
                 ...state,
                 name: action.name || state.name,
+            };
+        case 'DELETE_EXERCISE':
+            return {
+                ...state,
+                deleted: true,
             };
         default:
             return state;
@@ -31,11 +37,12 @@ const exercises = (state = [], action) => {
                 exercise(state, action),
             ];
         case 'DELETE_EXERCISE': {
-            const deletedExercisePos = state.findIndex((a) => {
+            const updatedExercise = state.findIndex((a) => {
                 return a.id === action.id;
             });
             const newState = [...state];
-            newState.splice(deletedExercisePos, 1);
+            newState[updatedExercise] = exercise(
+                state[updatedExercise], action);
             return newState;
         }
         case 'UPDATE_EXERCISE': {
