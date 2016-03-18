@@ -151,9 +151,12 @@ const TablePage = React.createClass({
                 addExercise={this.addExercise}
             />}
             <div>
-                <button onClick={() => {
-                    this.props.logout()
-                }}>
+                <button
+                    className={css(ST.button)}
+                    onClick={() => {
+                        this.props.logout()
+                    }}
+                >
                     Logout
                 </button>
             </div>
@@ -197,6 +200,7 @@ const TablePage = React.createClass({
                     >
                         <button
                             onClick={this.showExerciseModal}
+                            className={css(ST.button)}
                         >
                             Add Exercise
                         </button>
@@ -209,6 +213,7 @@ const TablePage = React.createClass({
                                 className={css(ST.cell)}
                             >
                                 <button
+                                    className={css(ST.button)}
                                     onClick={() => {
                                         this.props.addEntry();
                                     }}
@@ -371,6 +376,17 @@ const ST = StyleSheet.create({
         position: "absolute",
         top: 2,
         right: 2,
+    },
+
+    button: {
+        background: "#fff",
+        border: "1px solid #ddd",
+        borderRadius: 50,
+        cursor: "pointer",
+        padding: 10,
+        ":hover": {
+            background: "#ddd",
+        },
     },
 });
 
