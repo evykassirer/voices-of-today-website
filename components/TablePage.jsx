@@ -131,12 +131,14 @@ const TablePage = React.createClass({
 
     render: function() {
         const {
-            entries,
             updateEntryDate,
             updateExercise,
             addExerciseToEntry,
         } = this.props;
 
+        const entries = this.props.entries.filter((e) => {
+            return !e.deleted;
+        });
         entries.sort((entry1, entry2) => {
             // show newest dates on the left/first
             return entry1.date < entry2.date;

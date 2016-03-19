@@ -11,6 +11,7 @@ const entry = (state, action) => {
                 id: highestId + 1,
                 date: moment().valueOf(),
                 exercises: {},
+                deleted: false,
             };
         }
         case 'UPDATE_ENTRY':
@@ -18,6 +19,11 @@ const entry = (state, action) => {
                 id: action.id || state.id,
                 date: action.date || state.date,
                 exercises: action.exercises || state.exercises,
+            };
+        case 'DELETE_ENTRY':
+            return {
+                ...state,
+                deleted: true,
             };
         case 'ADD_EXERCISE_TO_ENTRY':
             return {
@@ -49,7 +55,7 @@ const entries = (state = [], action) => {
                 return a.id === action.id;
             });
             const newState = [...state];
-            newState.splice(deletedEntry, 1);
+            newState[deletedEntry] = entry(state[deletedEntry], action);
             return newState;
         }
         case 'UPDATE_ENTRY': {
