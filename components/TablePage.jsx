@@ -2,6 +2,8 @@ const { StyleSheet, css } = require('../lib/aphrodite.js');
 const React = require('react');
 const moment = require('moment');
 
+const SS = require('../styles.js');
+
 const ExerciseImage = require('./ExerciseImage.jsx');
 const ExerciseModal = require('./ExerciseModal.jsx');
 const Icon = require('./Icon.jsx');
@@ -155,7 +157,7 @@ const TablePage = React.createClass({
             />}
             <div>
                 <button
-                    className={css(ST.button)}
+                    className={css(ST.button, ST.buttonLight)}
                     onClick={() => {
                         this.props.logout()
                     }}
@@ -203,7 +205,7 @@ const TablePage = React.createClass({
                     >
                         <button
                             onClick={this.showExerciseModal}
-                            className={css(ST.button)}
+                            className={css(ST.button, ST.buttonLight)}
                         >
                             Add Exercise
                         </button>
@@ -224,7 +226,7 @@ const TablePage = React.createClass({
                                     <Icon
                                         type="plus"
                                         size={15}
-                                        color="#bbb"
+                                        color="#fff"
                                     />
                                 </button>
                             </div>
@@ -388,23 +390,47 @@ const ST = StyleSheet.create({
     },
 
     button: {
-        background: "#fff",
-        border: "1px solid #ddd",
+        background: SS.colors.green.light,
+        border: `1px solid ${SS.colors.green.dark}`,
         borderRadius: 50,
+        color: "#fff",
         cursor: "pointer",
+        fontFamily: "inherit",
+        fontSize: 14,
         padding: "10px 20px",
         ":hover": {
-            background: "#ddd",
+            background: SS.colors.green.dark,
+        },
+        ":focus": {
+            background: SS.colors.green.dark,
+            outline: "none",
+        },
+        ":active": {
+            background: SS.colors.green.dark,
+        },
+    },
+    buttonLight: {
+        background: "#fff",
+        border: `1px solid ${SS.colors.green.dark}`,
+        color: SS.colors.green.dark,
+        ":hover": {
+            background: "#eee",
+        },
+        ":focus": {
+            background: "#eee",
+            outline: "none",
+        },
+        ":active": {
+            background: "#eee",
         },
     },
 
     plusButton: {
-        height: 30,
+        height: 29 ,
         lineHeight: 0,
-        width: 30,
+        width: 29,
         padding: 0,
         display: "flex",
-        alignItems: "center",
         justifyContent: "center",
     },
 });
