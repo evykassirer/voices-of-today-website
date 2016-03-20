@@ -365,6 +365,7 @@ const ST = StyleSheet.create({
     editableText: {
         display: "inline-block",
         padding: 4,
+        textAlign: "center",
     },
     placeholderText: {
         color: "#999",
