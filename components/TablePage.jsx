@@ -211,26 +211,26 @@ const TablePage = React.createClass({
                         </button>
                     </div>
                 </div>
+                <div className={css(ST.column, ST.addEntryColumn)}>
+                    <div
+                        className={css(ST.cell)}
+                    >
+                        <button
+                            className={css(ST.button, ST.plusButton)}
+                            onClick={() => {
+                                this.props.addEntry();
+                            }}
+                        >
+                            <Icon
+                                type="plus"
+                                size={15}
+                                color="#fff"
+                            />
+                        </button>
+                    </div>
+                </div>
                 <div className={css(ST.results)}>
                     <div className={css(ST.resultsInner)}>
-                        <div className={css(ST.column, ST.addEntryColumn)}>
-                            <div
-                                className={css(ST.cell)}
-                            >
-                                <button
-                                    className={css(ST.button, ST.plusButton)}
-                                    onClick={() => {
-                                        this.props.addEntry();
-                                    }}
-                                >
-                                    <Icon
-                                        type="plus"
-                                        size={15}
-                                        color="#fff"
-                                    />
-                                </button>
-                            </div>
-                        </div>
                         {entries && entries.map((entry, entryIdx) => {
                             return <div
                                 className={css(ST.column)}
@@ -334,6 +334,7 @@ const ST = StyleSheet.create({
         display: "flex",
     },
     column: {
+        alignSelf: "stretch",
         borderRight: "1px solid #ddd",
         width: 120,
     },
