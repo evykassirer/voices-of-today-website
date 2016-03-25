@@ -391,41 +391,8 @@ const ST = StyleSheet.create({
         right: 2,
     },
 
-    button: {
-        background: SS.colors.green.light,
-        border: `1px solid ${SS.colors.green.dark}`,
-        borderRadius: 50,
-        color: "#fff",
-        cursor: "pointer",
-        fontFamily: "inherit",
-        fontSize: 14,
-        padding: "10px 20px",
-        ":hover": {
-            background: SS.colors.green.dark,
-        },
-        ":focus": {
-            background: SS.colors.green.dark,
-            outline: "none",
-        },
-        ":active": {
-            background: SS.colors.green.dark,
-        },
-    },
-    buttonLight: {
-        background: "#fff",
-        border: `1px solid ${SS.colors.green.dark}`,
-        color: SS.colors.green.dark,
-        ":hover": {
-            background: "#eee",
-        },
-        ":focus": {
-            background: "#eee",
-            outline: "none",
-        },
-        ":active": {
-            background: "#eee",
-        },
-    },
+    button: SS.button,
+    buttonLight: SS.buttonLight,
 
     plusButton: {
         height: 29 ,

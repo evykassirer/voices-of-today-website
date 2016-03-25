@@ -2,6 +2,7 @@ const React = require('react');
 const { css, StyleSheet } = require('../lib/aphrodite.js');
 
 const ExerciseImage = require('./ExerciseImage.jsx');
+const SS = require('../styles.js');
 
 const RP = React.PropTypes;
 
@@ -32,6 +33,14 @@ const ExerciseModal = React.createClass({
                             <ExerciseImage type={exercise} />
                         </div>;
                     })}
+                </div>
+                <div
+                    className={css(ST.button, ST.newExercise)}
+                    onClick={() => {
+                        this.props.addExercise("New Exercise");
+                    }}
+                >
+                    New Exercise
                 </div>
             </div>
         </div>;
@@ -92,8 +101,10 @@ const ST = StyleSheet.create({
             opacity: 1,
         },
     },
-    newExercise: {
 
+    button: SS.button,
+    newExercise: {
+        marginTop: 10,
     },
 });
 

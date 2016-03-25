@@ -55,6 +55,47 @@ const colors = {
     },
 };
 
+const button = {
+    background: colors.green.light,
+    border: `1px solid ${colors.green.dark}`,
+    borderRadius: 50,
+    color: "#fff",
+    cursor: "pointer",
+    fontFamily: "inherit",
+    fontSize: 14,
+    padding: "10px 20px",
+    textAlign: "center",
+
+    ":hover": {
+        background: colors.green.dark,
+    },
+    ":focus": {
+        background: colors.green.dark,
+        outline: "none",
+    },
+    ":active": {
+        background: colors.green.dark,
+    },
+};
+const buttonLight = {
+    background: "#fff",
+    border: `1px solid ${colors.green.dark}`,
+    color: colors.green.dark,
+
+    ":hover": {
+        background: "#eee",
+    },
+    ":focus": {
+        background: "#eee",
+        outline: "none",
+    },
+    ":active": {
+        background: "#eee",
+    },
+};
+
 module.exports = {
-    colors
+    button,
+    buttonLight,
+    colors,
 };
