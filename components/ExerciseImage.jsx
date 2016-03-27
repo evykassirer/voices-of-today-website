@@ -44,11 +44,15 @@ const ExerciseImage = React.createClass({
         };
     },
 
+    animate: function() {
+        this.setState({
+            animationFrame: this.state.animationFrame === 0 ? 1 : 0,
+        });
+    },
     startAnimation: function() {
+        this.animate();
         this.animationInterval = window.setInterval(() => {
-            this.setState({
-                animationFrame: this.state.animationFrame === 0 ? 1 : 0,
-            });
+            this.animate();
         }, 500);
     },
     stopAnimation: function() {
