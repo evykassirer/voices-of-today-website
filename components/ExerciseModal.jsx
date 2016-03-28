@@ -55,6 +55,7 @@ const ST = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         left: 0,
+        overflowY: "auto",
         position: "fixed",
         right: 0,
         top: 0,
