@@ -14,7 +14,12 @@ const ExerciseModal = React.createClass({
     render: function() {
         const exercises = ExerciseImage.exerciseOptions();
         return <div className={css(ST.overlay)} onClick={this.props.close}>
-            <div className={css(ST.modal)}>
+            <div
+                className={css(ST.modal)}
+                onClick={(e) => {
+                    e.stopPropagation();
+                }}
+            >
                 <button className={css(ST.close)} onClick={this.props.close}>
                     &times;
                 </button>
@@ -34,13 +39,19 @@ const ExerciseModal = React.createClass({
                         </div>;
                     })}
                 </div>
+                <div className={css(ST.lineTextWrapper)}>
+                    <div className={css(ST.lineBehind)} />
+                    <span className={css(ST.lineText)}>
+                        OR
+                    </span>
+                </div>
                 <div
                     className={css(ST.button, ST.newExercise)}
                     onClick={() => {
                         this.props.addExercise("New Exercise");
                     }}
                 >
-                    New Exercise
+                    Add a new exercise
                 </div>
             </div>
         </div>;
@@ -69,6 +80,7 @@ const ST = StyleSheet.create({
         background: "#fff",
         borderRadius: 4,
         flex: 1,
+        margin: 20,
         maxWidth: 400,
         padding: 40,
         position: "relative",
@@ -104,8 +116,24 @@ const ST = StyleSheet.create({
     },
 
     button: SS.button,
-    newExercise: {
-        marginTop: 10,
+
+    lineTextWrapper: {
+        color: "#999",
+        margin: 5,
+        marginBottom: 20,
+        marginTop: 20,
+        textAlign: "center",
+    },
+    lineBehind: {
+        borderBottom: "1px solid #ddd",
+        marginBottom: -10,
+        paddingTop: 8,
+    },
+    lineText: {
+        background: "#fff",
+        display: "inline-block",
+        paddingLeft: 5,
+        paddingRight: 5,
     },
 });
 
