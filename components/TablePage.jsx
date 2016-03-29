@@ -381,9 +381,13 @@ const ST = StyleSheet.create({
     deleteButton: {
         background: "none",
         border: "none",
-        color: "#999",
+        color: "#888",
         cursor: "pointer",
         fontSize: 16,
+        opacity: 0.6,
+        ":hover": {
+            opacity: 1,
+        },
     },
     exerciseDeleteButton: {
         position: "absolute",
