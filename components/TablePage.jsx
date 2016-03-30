@@ -155,7 +155,7 @@ const TablePage = React.createClass({
                 close={this.hideExerciseModal}
                 addExercise={this.addExercise}
             />}
-            <div>
+            <div className={css(ST.header)}>
                 <button
                     className={css(ST.button, ST.buttonLight)}
                     onClick={() => {
@@ -312,12 +312,16 @@ const ST = StyleSheet.create({
     page: {
         maxWidth: 800,
         margin: "0 auto",
-        padding: 20,
+        padding: 30,
     },
+    header: {
+        textAlign: "right",
+    },
+
     title: {
         fontSize: 30,
-        marginTop: 60,
-        marginBottom: 20,
+        marginTop: 20,
+        marginBottom: 30,
         textAlign: "center",
     },
     table: {
