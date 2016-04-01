@@ -19,8 +19,7 @@ let App = React.createClass({
         exercises: RP.array,
 
         login: RP.func,
-        loadExercises: RP.func,
-        loadEntries: RP.func,
+        loadData: RP.func,
     },
     componentDidMount: function() {
         this.loadUserData();
