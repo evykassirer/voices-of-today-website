@@ -174,10 +174,14 @@ const TablePage = React.createClass({
                         className={css(ST.cell)}
                     >
                     </div>
-                    {exercises && exercises.map((exercise, idx) => {
+                    {exercises && exercises.map((exercise, exerciseIdx) => {
                         return <div
                             key={exercise.id}
-                            className={css(ST.cell, ST.exerciseCell)}
+                            className={css(
+                                ST.cell,
+                                ST.exerciseCell,
+                                exerciseIdx % 2 && ST.darkCell
+                            )}
                         >
                             <ExerciseImage type={exercise.name} />
                             <ClickToEdit
@@ -260,7 +264,11 @@ const TablePage = React.createClass({
                                     const ex = entry.exercises &&
                                         entry.exercises[exercise.exId];
                                     return <div
-                                        className={css(ST.cell, ST.dataCell)}
+                                        className={css(
+                                            ST.cell,
+                                            ST.dataCell,
+                                            exerciseIdx % 2 && ST.darkCell
+                                        )}
                                         key={exercise.id}
                                     >
                                         <div className={css(ST.weight)}>
@@ -358,6 +366,9 @@ const ST = StyleSheet.create({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+    },
+    darkCell: {
+        background: "#fafafa",
     },
 
     dataCell: {
