@@ -143,7 +143,7 @@ const TablePage = React.createClass({
         });
         entries.sort((entry1, entry2) => {
             // show newest dates on the left/first
-            return entry1.date < entry2.date;
+            return entry1.date < entry2.date ? 1 : -1;
         });
 
         const exercises = this.props.exercises.filter((e) => {
