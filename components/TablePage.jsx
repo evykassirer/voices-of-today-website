@@ -14,8 +14,8 @@ const ClickToEdit = React.createClass({
     propTypes: {
         text: RP.string,
         placeholder: RP.string,
-        textClass: RP.object,
-        inputClass: RP.object,
+        placeholderStyles: RP.oneOfType([RP.object, RP.bool]),
+        inputStyles: RP.oneOfType([RP.object, RP.bool]),
     },
     getDefaultProps: function() {
         return {
@@ -54,7 +54,8 @@ const ClickToEdit = React.createClass({
     },
     render: function() {
         const {
-            inputClass,
+            inputStyles,
+            placeholderStyles,
             placeholder,
             textClass,
         } = this.props;
@@ -69,7 +70,7 @@ const ClickToEdit = React.createClass({
                 }}
             >
                 <input
-                    className={css(inputClass, ST.input)}
+                    className={css(inputStyles, ST.input)}
                     value={text}
                     placeholder={placeholder}
                     onChange={this.handleOnChange}
@@ -80,7 +81,11 @@ const ClickToEdit = React.createClass({
             </form>;
         }
         return <span
-            className={css(ST.editableText, !text && ST.placeholderText)}
+            className={css(
+                ST.editableText,
+                !text && ST.placeholderText,
+                !text && placeholderStyles
+            )}
             onClick={this.setEditing}
             onFocus={this.setEditing}
             tabIndex={0}
@@ -244,7 +249,7 @@ const TablePage = React.createClass({
                                     className={css(ST.cell)}
                                 >
                                     <ClickToEdit
-                                        inputClass={ST.dateInput}
+                                        inputStyles={ST.dateInput}
                                         text={
                                             moment(entry.date).format('MMM Do')
                                         }
@@ -283,6 +288,10 @@ const TablePage = React.createClass({
                                                         ex ? ex.reps : null
                                                     )
                                                 }}
+                                                placeholderStyles={
+                                                    entryIdx !== 0 &&
+                                                        ST.lightPlaceholder
+                                                }
                                             />
                                         </div>
                                         <div className={css(ST.reps)}>
@@ -297,6 +306,10 @@ const TablePage = React.createClass({
                                                         reps || null
                                                     )
                                                 }}
+                                                placeholderStyles={
+                                                    entryIdx !== 0 &&
+                                                        ST.lightPlaceholder
+                                                }
                                             />
                                         </div>
                                     </div>;
@@ -385,6 +398,9 @@ const ST = StyleSheet.create({
     },
     placeholderText: {
         color: "#999",
+    },
+    lightPlaceholder: {
+        color: "#ccc",
     },
     input: {
         font: "inherit",
