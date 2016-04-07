@@ -393,7 +393,7 @@ const ST = StyleSheet.create({
     },
     editableText: {
         display: "inline-block",
-        padding: 4,
+        padding: 5,
         textAlign: "center",
     },
     placeholderText: {
