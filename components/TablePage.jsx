@@ -415,7 +415,7 @@ const ST = StyleSheet.create({
         color: "#888",
         cursor: "pointer",
         fontSize: 16,
-        opacity: 0.6,
+        opacity: 0.8,
         ":hover": {
             opacity: 1,
         },
