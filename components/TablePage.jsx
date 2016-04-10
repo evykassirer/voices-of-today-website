@@ -199,10 +199,7 @@ const TablePage = React.createClass({
                                 }}
                             />
                             <button
-                                className={css(
-                                    ST.deleteButton,
-                                    ST.exerciseDeleteButton
-                                )}
+                                className={css(ST.exerciseDeleteButton)}
                                 onClick={() => {
                                     this.props.deleteExercise(exercise.id);
                                 }}
@@ -314,12 +311,16 @@ const TablePage = React.createClass({
                                         </div>
                                     </div>;
                                 })}
-                                <button
-                                    className={css(ST.deleteButton)}
-                                    onClick={() => {
-                                        this.props.deleteEntry(entry.id);
-                                    }}
-                                >&times; Delete Entry</button>
+                                <div className={css(ST.cell)}>
+                                    <button
+                                        className={css(ST.deleteButton)}
+                                        onClick={() => {
+                                            this.props.deleteEntry(entry.id);
+                                        }}
+                                    >
+                                        Delete Entry
+                                    </button>
+                                </div>
                             </div>;
                         })}
                     </div>
@@ -408,8 +409,20 @@ const ST = StyleSheet.create({
         textAlign: "center",
         width: "100%",
     },
-
     deleteButton: {
+        background: "none",
+        border: "1px solid #aaa",
+        borderRadius: 30,
+        color: "#888",
+        cursor: "pointer",
+        fontSize: 11,
+        opacity: 0.8,
+        padding: "6px 11px",
+        ":hover": {
+            opacity: 1,
+        },
+    },
+    exerciseDeleteButton: {
         background: "none",
         border: "none",
         color: "#888",
@@ -419,8 +432,7 @@ const ST = StyleSheet.create({
         ":hover": {
             opacity: 1,
         },
-    },
-    exerciseDeleteButton: {
+
         position: "absolute",
         top: 2,
         right: 2,
