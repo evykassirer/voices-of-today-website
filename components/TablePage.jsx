@@ -246,7 +246,6 @@ const TablePage = React.createClass({
                                     className={css(ST.cell)}
                                 >
                                     <ClickToEdit
-                                        inputStyles={ST.dateInput}
                                         text={
                                             moment(entry.date).format('MMM Do')
                                         }
