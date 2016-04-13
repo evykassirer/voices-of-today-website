@@ -180,6 +180,7 @@ const TablePage = React.createClass({
                     >
                     </div>
                     {exercises && exercises.map((exercise, exerciseIdx) => {
+                        const exOptions = ExerciseImage.exerciseOptions();
                         return <div
                             key={exercise.id}
                             className={css(
@@ -188,7 +189,9 @@ const TablePage = React.createClass({
                                 exerciseIdx % 2 && ST.darkCell
                             )}
                         >
-                            <ExerciseImage type={exercise.name} />
+                            {exOptions.indexOf(exercise.name) > -1 &&
+                                <ExerciseImage type={exercise.name} />
+                            }
                             <ClickToEdit
                                 text={exercise.name}
                                 onSubmit={(newName) => {
