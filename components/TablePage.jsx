@@ -15,6 +15,7 @@ const ClickToEdit = React.createClass({
         text: RP.string,
         placeholder: RP.string,
         placeholderStyles: RP.oneOfType([RP.object, RP.bool]),
+        textStyles: RP.oneOfType([RP.object, RP.bool]),
         inputStyles: RP.oneOfType([RP.object, RP.bool]),
     },
     getDefaultProps: function() {
@@ -57,7 +58,7 @@ const ClickToEdit = React.createClass({
             inputStyles,
             placeholderStyles,
             placeholder,
-            textClass,
+            textStyles,
         } = this.props;
         const {
             text
@@ -84,6 +85,7 @@ const ClickToEdit = React.createClass({
             className={css(
                 ST.editableText,
                 !text && ST.placeholderText,
+                textStyles,
                 !text && placeholderStyles
             )}
             onClick={this.setEditing}
