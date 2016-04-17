@@ -19,6 +19,8 @@ const exerciseOptions = [
     'standing dumbbell curls',
 ];
 
+const BASE_ICON_SIZE = 60;
+
 const ExerciseImage = React.createClass({
     propTypes: {
         type: React.PropTypes.string,
@@ -40,7 +42,7 @@ const ExerciseImage = React.createClass({
         return {
             color: 'grey',
             type: 'overhead-delt',
-            height: 60,
+            height: BASE_ICON_SIZE,
         };
     },
 
@@ -412,9 +414,11 @@ const ExerciseImage = React.createClass({
     render: function() {
         const style = {
             height: this.props.height,
-            width: this.props.height * 100 / 60,
+            width: this.props.height * 100 / BASE_ICON_SIZE,
             backgroundColor: colors[this.props.color].lightest,
         };
+
+        const iconScale = this.props.height / BASE_ICON_SIZE;
 
         return (
             <div
@@ -423,7 +427,9 @@ const ExerciseImage = React.createClass({
                 style={style}
             >
                 <svg style={style}>
+                    <g transform={`scale(${iconScale})`}>
                     {this.renderExerciseImage(this.props.type)}
+                    </g>
                 </svg>
             </div>
         );
