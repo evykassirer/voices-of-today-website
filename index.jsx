@@ -5,10 +5,10 @@ const { compose, createStore } = require('redux');
 
 const DevTools = require('./containers/DevTools.jsx');
 
+const production = process.env.NODE_ENV === "production";
+
 const rootReducer = require('./reducers/index.js');
 const App = require('./app.jsx');
-
-const production = process.env.NODE_ENV === "production";
 
 const enhancer = !production ? compose(
     DevTools.instrument()
@@ -20,7 +20,7 @@ ReactDOM.render(
     <Provider store={store}>
         <div>
             <App />
-            {!production && <DevTools />}
+            {false && !production && <DevTools/>}
         </div>
     </Provider>,
     document.getElementById('content')

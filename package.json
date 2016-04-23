@@ -1,7 +1,7 @@
 {
-  "name": "weight-lifting-tracker",
+  "name": "website",
   "version": "0.0.1",
-  "description": "Weight lifting tracker",
+  "description": "website",
   "main": "index.jsx",
   "repository": {
     "type": "git",
