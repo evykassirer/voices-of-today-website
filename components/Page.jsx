@@ -1,10 +1,9 @@
 const { StyleSheet, css } = require('../lib/aphrodite.js');
 const React = require('react');
+const Router = require('react-router');
 const moment = require('moment');
 
 const SS = require('../styles.js');
-
-const Icon = require('./Icon.jsx');
 
 const RP = React.PropTypes;
 
