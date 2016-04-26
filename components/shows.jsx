@@ -34,7 +34,7 @@ const Show = React.createClass({
                 " -- in " + details.location}
             </div>
             <image
-                src={'/images/shows/' + details.image}
+                src={'images/shows/' + details.image}
                 className={css(ST.eventIcon)}
             />
             <div className={css(ST.eventBlurb)}>{details.blurb}</div>

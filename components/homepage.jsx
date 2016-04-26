@@ -16,7 +16,7 @@ const Icon = React.createClass({
     render: function() {
         return <a href={this.props.linkTo} target="_blank">
             <img
-                src={"/images/" + this.props.imageName}
+                src={"images/" + this.props.imageName}
                 className={css(ST.icon)}
             />
         </a>;
@@ -28,7 +28,7 @@ const Page = React.createClass({
         return <div className={css(ST.page)}>
             <Header page="home"/>
             <div className={css(ST.pageContent)}>
-            <img src="/images/Kay-banner.jpg" className={css(ST.banner)}/>
+            <img src="images/Kay-banner.jpg" className={css(ST.banner)}/>
             <div className={css(ST.iconGroup)}>
                 <Icon 
                     imageName="facebook.png" 
