@@ -28,16 +28,21 @@ const Show = React.createClass({
                 {details.title}
             </a>
             <div className={css(ST.timeAndPlace)}>
-                {details.startDate.format("MMM D") + (details.endDate ?
-                    (" to " + details.endDate.format("MMM D, YYYY")) :
-                    details.startDate.format(", YYYY")) +
-                " -- in " + details.location}
+                When: {details.endDate ?
+                    details.startDate.format("MMM D") + " to " +
+                        details.endDate.format("MMM D, YYYY") :
+                    details.startDate.format("MMM D, YYYY @ h:mm A")}
             </div>
-            <image
-                src={'images/shows/' + details.image}
-                className={css(ST.eventIcon)}
-            />
-            <div className={css(ST.eventBlurb)}>{details.blurb}</div>
+            <div className={css(ST.timeAndPlace)}>
+                Where: {details.location}
+            </div>
+            <div className={css(ST.blurbBox)}>
+                <image
+                    src={details.image.startsWith("http") ? details.image : 'images/shows/' + details.image}
+                    className={css(ST.eventIcon)}
+                />
+                <span className={css(ST.eventBlurb)}>{details.blurb}</span>
+            </div>
         </div>;
     },
 })
@@ -71,7 +76,7 @@ const Shows = React.createClass({
             }
             return 0;
         });
-        console.log("SORTED", pastShows);
+        console.log("upcoming!", upcomingShows);
 
         return <div className={css(ST.page)}>
             <Header page="shows"/>
@@ -101,18 +106,20 @@ const ST = StyleSheet.create({
     eventTitle: {
         fontSize: "25px",
     },
+    blurbBox: {
+        marginTop: "20px",
+    },
     eventBlurb: {
         display: "inline-block",
         fontSize: "16px",
         lineHeight: 1.5,
-        margin: "30px 0px 0px 30px",
-        verticalAlign: "top",
+        marginLeft: "30px",
+        verticalAlign: "middle",
         width: "50%",
     },
     eventIcon: {
         maxWidth: "40%",
-        margin: "20px 0px",
-
+        verticalAlign: "middle",
     },
     oneShow: {
         margin: "20px",
@@ -135,65 +142,104 @@ const LIST_OF_SHOWS = [
         title: "Canadian Individual Poetry Slam",
         location: "Vancouver",
         linkToEvent: "http://versesfestival.ca/about-verses/poetry-slam/",
-        blurb: `I'm competing as one of 40 poets from across the nation 
+        blurb: `Kay competed as one of 40 poets from across the nation 
             in a large-scale national event to determine the best slammer
-            in Canada. It is sponsored by SpoCan (Spoken Word Canada),
+            in Canada. They performed on the finals stage!
+            CIPS is sponsored by SpoCan (Spoken Word Canada),
             the governing body of Canadian poetry slam.`,
         image: 'CIPS2016.jpeg',
         id: 1,
     },
     {
-        startDate: moment("March 28 16", "MMMM DD YY"),
+        startDate: moment("June 9 16 9:00 PM", "MMMM DD YY h:mm A"),
         endDate: null,
-        title: "Some event from the past",
-        location: "some place",
-        linkToEvent: "blah",
-        blurb: `A long time ago, I performed at a thing. Then it was over.
-            But it's still on my website!`,
-        image: 'CIPS2016.jpeg',
+        title: "KAY Kassirer, ALAIN Ginsberg, Basura BABY, Cecily Schuler, Eunb1!poetry @ Holy Underground",
+        location: "Holy Underground, 2021 Maryland Ave, Baltimore, Maryland",
+        linkToEvent: "https://www.facebook.com/events/1112998162100890/",
+        blurb: `$5 show, Canada is real far away! 
+            Doors at 9, show will start at 930! 
+            Might do like one smoke break? but also show up on time because this is 
+            Not To Be Missed. --- 
+            ACCESSIBILITY NOTICE: There is a short set of stairs to enter the building,
+            and chairs will be available once inside. If you need assistance with the stairs let Alain Ginsberg know and they will help you.`,
+        image: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/13254278_10154226035423817_3240621814156479362_n.jpg?oh=441f4b6bb9db64146459595e28b9f53c&oe=57CFA415',
         id: 2,
     },
     {
-        startDate: moment().subtract(1, 'day'),
-        endDate: moment().add(1, 'day'),
-        title: "This is going on right now!",
-        location: "some place",
-        linkToEvent: "blah",
-        blurb: `It started yesterday, but it's going until tomorrow`,
-        image: 'CIPS2016.jpeg',
+        startDate: moment("May 26 16 7:30 PM", "MMMM DD YY h:mm A"),
+        endDate: null,
+        title: "Regina Word Up! Youth Stage Season Closer ft Kay Kassirer",
+        location: "Creative City Centre, 1843 Hamilton St., Regina, Saskatchewan",
+        linkToEvent: "https://www.facebook.com/events/189633021372214/",
+        blurb: `From 5:00 pm - 6:00 pm participate in the workshop 
+            "Spoken Word & Mental Health - Writing to survive" presented by feature
+            artist Kay Kassirer. From 6:00 pm -7:30 pm we will eat food!  At 7:30
+            doors open for Youth Stage which starts around 8.
+            Admission is $5 + GST or PWYC (No one turned away.)
+
+ `,
+        image: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/12662585_1048031975239653_2834278996702584976_n.jpg?oh=72b2ea416694d7b83258d2b89d83bde6&oe=57C9852D',
         id: 3,
     },
     {
-        startDate: moment("Jan 27 14", "MMMM DD YY"),
+        startDate: moment("May 29 16 7:30 PM", "MMMM DD YY h:mm A"),
         endDate: null,
-        title: "Some event from the far past",
-        location: "some place",
-        linkToEvent: "blah",
-        blurb: `A very long time ago, I performed at a thing. Then it was over.
-            But it's still on my website!`,
-        image: 'CIPS2016.jpeg',
+        title: "Tonight It's Poetry ft. Kay Kassirer",
+        location: "The Woods Ale House - 148 2nd Ave North, Saskatoon, Saskatchewan",
+        linkToEvent: "https://www.facebook.com/events/1528837284083651/",
+        blurb: `Tonight it's Poetry is Saskatoon's only weekly poetry series. 
+            This week featuring Kay! $5 // 19+`,
+        image: 'https://scontent-yyz1-1.xx.fbcdn.net/t31.0-8/13483135_672549602897119_8573873878527753570_o.png',
         id: 4,
     },
     {
-        startDate: moment("Jan 30 14", "MMMM DD YY"),
-        endDate: moment("Feb 1 14", "MMMM DD YY"),
-        title: "Some event from the slightly less far past",
-        location: "some place",
-        linkToEvent: "blah",
-        blurb: `A very long time ago, I performed at a thing. Then it was over.
-            But it's still on my website!`,
-        image: 'CIPS2016.jpeg',
+        startDate: moment("June 3 16", "MMMM DD YY"),
+        endDate: moment("June 5 16", "MMMM DD YY"),
+        title: "Capturing Fire - International Queer Poetry Summit & Slam",
+        location: "Washington, DC",
+        linkToEvent: "https://capfireslam.org/",
+        blurb: `Capturing Fire is the only international Queer Spoken Word Slam.
+            In its 6th year, The literary event showcases poets from North America
+            and The United Kingdom. Kay placed second and was the Queer Cookie Slam Champion.`,
+        image: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/13322106_868846463221297_5038961779873045723_n.jpg?oh=e488fc1bc7111fb277680732facfc152&oe=57D42BAE',
         id: 5,
     },
     {
-        startDate: moment("Dec 27 16", "MMMM DD YY"),
+        startDate: moment("July 3 16 7:00 PM", "MMMM DD YY h:mm A"),
         endDate: null,
-        title: "Some event from the fuuuuture",
-        location: "some place",
-        linkToEvent: "blah",
-        blurb: `Not the first thing on the upcoming list, but upcoming!`,
-        image: 'CIPS2016.jpeg',
+        title: "Throw Poetry Collective July Slam - Featuring Kay Kassirer",
+        location: "Le Divan Orange - 4234 Boulevard Saint-Laurent, Montreal, Quebec",
+        linkToEvent: "https://www.facebook.com/events/1750362858569324/",
+        blurb: `Sign up for the open mic and competition starts at 7, 
+            the show starts at 8. All competing poets must have two poems. 
+            Entry is $5 for Students and members of the Quebec Writers Federation;
+            $7 for everyone else. `,
+        image: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/1385869_647470928609196_882802125_n.jpg?oh=44be28c0b0f672315d3cf31f53aea664&oe=57CA006F',
         id: 6,
+    },
+    {
+        startDate: moment("July 8 16 7:30", "MMMM DD YY  h:mm A"),
+        endDate: null,
+        title: "St. Catharines Poetry SLAM July ft Kay Kassirer",
+        location: "Mahtay Café & Lounge - 241 St. Paul Street, Saint Catharines, Ontario",
+        linkToEvent: "https://www.facebook.com/events/259608111062392/",
+        blurb: `The St. Catharines POETRY SLAM is a monthly competitive spoken word event.
+            Doors @ 7:30 pm | $5 | Mahtay Café & Lounge. Open mic @ 8pm followed by a
+            2 round slam with Kay featuring between rounds. `,
+        image: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/13502054_10153781568777635_3597850132156999287_n.jpg?oh=ec444f3b299d91c54128f8bd655ba940&oe=57D2E345',
+        id: 7,
+    },
+    {
+        startDate: moment("July 10 16 6:30", "MMMM DD YY  h:mm A"),
+        endDate: null,
+        title: "Spoken Weird Open Mic & Poetry Slam",
+        location: "45 Queen St, Oshawa, Ontario - in the auditorium of the Arts Resource ",
+        linkToEvent: "https://www.facebook.com/events/259608111062392/",
+        blurb: `Come on down to Spoken Weird Open Mic & Poetry Slam to help kick off the
+            summer right. This month, featuring the fantastical Kay Kassirer! 
+            -- Open mic / Slam starts @ 6:30pm / Cover: $6`,
+        image: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/13428623_1037278893007126_7971140840243997270_n.jpg?oh=a696728b7a0e74be67796f0c8e85bac5&oe=57D468FF',
+        id: 8,
     },
 ];
 
