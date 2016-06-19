@@ -144,7 +144,7 @@ const LIST_OF_SHOWS = [
         linkToEvent: "http://versesfestival.ca/about-verses/poetry-slam/",
         blurb: `Kay competed as one of 40 poets from across the nation 
             in a large-scale national event to determine the best slammer
-            in Canada. They performed on the finals stage!
+            in Canada. They performed on the finals stage and placed third!
             CIPS is sponsored by SpoCan (Spoken Word Canada),
             the governing body of Canadian poetry slam.`,
         image: 'CIPS2016.jpeg',
@@ -234,7 +234,7 @@ const LIST_OF_SHOWS = [
         endDate: null,
         title: "Spoken Weird Open Mic & Poetry Slam",
         location: "45 Queen St, Oshawa, Ontario - in the auditorium of the Arts Resource ",
-        linkToEvent: "https://www.facebook.com/events/259608111062392/",
+        linkToEvent: "https://www.facebook.com/events/247143885658618/",
         blurb: `Come on down to Spoken Weird Open Mic & Poetry Slam to help kick off the
             summer right. This month, featuring the fantastical Kay Kassirer! 
             -- Open mic / Slam starts @ 6:30pm / Cover: $6`,
