@@ -1,1 +1,1 @@
-Kay Kassirer's website
+Website for Voices of Today festival
