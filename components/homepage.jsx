@@ -7,82 +7,82 @@ const SS = require('../styles.js');
 const RP = React.PropTypes;
 
 const Header = require("./header.jsx");
+const Footer = require("./footer.jsx");
 
-const Icon = React.createClass({
-    propTypes: {
-        imageName: RP.string,
-        linkTo: RP.string,
-    },
-    render: function() {
-        return <a href={this.props.linkTo} target="_blank">
-            <img
-                src={"images/" + this.props.imageName}
-                className={css(ST.icon)}
-            />
-        </a>;
-    },
-})
 
 const Page = React.createClass({
     render: function() {
         return <div className={css(ST.page)}>
-            <Header page="home"/>
+            <Header/>
             <div className={css(ST.pageContent)}>
-            <img src="images/Kay-banner.jpg" className={css(ST.banner)}/>
-            <div className={css(ST.iconGroup)}>
-                <Icon 
-                    imageName="facebook.png" 
-                    linkTo="https://www.facebook.com/kay.kassirer"
-                />
-                <Icon 
-                    imageName="twitter.png" 
-                    linkTo="https://twitter.com/queerkay"
-                />
-                <Icon 
-                    imageName="youtube.png" 
-                    linkTo="http://youtube.com/queerkay"
-                />
-                <Icon 
-                    imageName="email.png" 
-                    linkTo="malito:kay.kassirer@gmail.com"
-                />
+                <div className={css(ST.logo)}>
+                    <img src="images/logo_colour.jpg" className={css(ST.logoImage)}/>
+                </div>
+                <div className={css(ST.blurb)}>
+                    <div>Voices of Today is a gathering of youth poets to learn
+                    from each other, community leaders, and themselves.</div>
+                    <br/>
+                    <div>Voices of Today  is a five day festival with
+                    workshops, open mics, and showcases, with the goal of
+                    bringing together youth poets from all across Canada.
+                    </div>
+                    <br/>
+                    <div>Volunteer at the festival! Learn more <a href="/volunteer">here</a>
+                    </div>
+                </div>
             </div>
-            <span className={css(ST.bio)}>
-                Kay Kassirer is a Toronto based spoken word poet and activist.
-                They use their poetry to tell stories, educate people, and
-                heal. Kay can be found leading workshops, frequenting local
-                poetry slams, or stuck in a tree. Kay was a member of the 2015
-                Toronto Poetry Slam Team, and continues to travel
-                internationally with their words. Kay has a chapbook published
-                by We Flip Tables Press entitled Confessions of a Queer.
-            </span>
-            </div>
+            <Footer/>
         </div>;
     }
 });
 
 const ST = StyleSheet.create({
-    banner : {
-        width: "100%",
+    logo : {
+        padding: "10px",
+        float: "left",
+        '@media (max-width:915px)': {
+            float: "none",
+            padding: "10px",
+            textAlign: "center",
+        }
     },
-    bio : {
+    logoImage: {
+        height: "20em",
+        '@media (max-width:915px)': {
+            height: "15em",
+        }
+    },
+    blurb : {
         lineHeight: 1.5,
+        fontSize: "19px",
+        textAlign: "left",
+        paddingLeft: "5%",
+        paddingRight: "5%",
+        paddingTop: "10px",
+        overflow: "hidden",
+        maxWidth: "80%",
+        '@media (max-width:915px)': {
+            float: "center",
+            fontSize: "17px",
+            position: "relative",
+            textAlign: "center",
+            lineHeight: "150%",
+            paddingLeft: "15%",
+            paddingRight: "15%",
+            maxWidth: "100%",
+        }
     },
     page : {
         width: "100%",
     },
     pageContent: {
-        paddingTop: "70px",
-        width: "730px",
+        padding: "70px",
+        paddingTop: "15%",
+        width: "100%",
         margin: "0 auto",
+        overflow: "hidden",
+        display: "block",
     },
-    iconGroup: {
-        textAlign: "center",
-    },
-    icon: {
-        height: "50px",
-        margin: "15px",
-    }
 });
 
 module.exports = Page;

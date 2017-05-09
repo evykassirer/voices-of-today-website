@@ -12,63 +12,27 @@ const Header = React.createClass({
 
     render: function() {
         return <div className={css(ST.headerBar)}>
-            <a className={css(ST.name, ST.headerElement)} href="/">Kay Kassirer</a>
-            <a className={css(ST.pageName,
-                              ST.headerElement,
-                              this.props.page === "home" && ST.selected)}
-                href="/">Home</a>
-            <a className={css(ST.pageName,
-                              ST.headerElement,
-                              this.props.page === "about" && ST.selected)}
-                href="/about">About</a>
-            <a className={css(ST.pageName,
-                              ST.headerElement,
-                              this.props.page === "shows" && ST.selected)} 
-                href="/shows">Shows</a>
-            <a className={css(ST.pageName,
-                              ST.headerElement,
-                              this.props.page === "youtube" && ST.selected)}
-                href="/youtube">YouTube</a>
-                <a className={css(ST.pageName,
-                                  ST.headerElement,
-                                  this.props.page === "merch" && ST.selected)}
-                href="/">Merch</a>
+            <a href="/" className={css(ST.text)}>VOICES OF TODAY</a>
         </div>;
     }
 });
 
 const ST = StyleSheet.create({
     headerBar: {
-        backgroundColor: SS.colors.purple.light,
+        backgroundColor: "#1DACEE",
         display: "inline-block",
         position: "fixed",
         textAlign: "center",
         width: "100%",
     },
-    headerElement: {
-        color: SS.colors.grey.light,
+    text: {
+        color: "black",
+        letterSpacing: "10px",
         display: "inline-block",
-        height: "50px",
-        lineHeight: "50px",
-        textAlign: "center",
-        textDecoration: "none",
-        verticalAlign: "middle",
-    },
-    name: {
-        width: "200px",
+        width: "100%",
         fontSize: "20px",
-    },
-    pageName: {
-        width: "120px",
-        ":hover": {
-            backgroundColor: SS.colors.teal.light,
-            color: SS.colors.grey.darkest,
-        },
-    },
-    selected: {
-        backgroundColor: SS.colors.teal.light,
-        color: SS.colors.grey.darkest,
-    },
+        padding: "20px"
+    }
 });
 
 module.exports = Header;
