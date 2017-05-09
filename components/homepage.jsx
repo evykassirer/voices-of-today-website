@@ -29,6 +29,14 @@ const Page = React.createClass({
                     bringing together youth poets from all across Canada.
                     </div>
                     <br/>
+                    <div>
+                    Apply to perform or run workshops throughout the festival!
+                    Deadline is May 15th at midnight EST.
+                    Application form: <a href="https://goo.gl/forms/Ufrq9b3dZYUUS4Fa2">
+                    https://goo.gl/forms/Ufrq9b3dZYUUS4Fa2
+                    </a>
+                    </div>
+                    <br/>
                     <div>Volunteer at the festival! Learn more <a href="/volunteer">here</a>
                     </div>
                 </div>
