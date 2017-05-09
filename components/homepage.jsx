@@ -20,7 +20,9 @@ const Page = React.createClass({
                 </div>
                 <div className={css(ST.blurb)}>
                     <div>Voices of Today is a gathering of youth poets to learn
-                    from each other, community leaders, and themselves.</div>
+                    from each other, community leaders, and themselves.
+                    It is scheduled to take place August 20-26 in Toronto,
+                    Ontario.</div>
                     <br/>
                     <div>Voices of Today  is a five day festival with
                     workshops, open mics, and showcases, with the goal of
