@@ -28,7 +28,7 @@ const Volunteer = React.createClass({
                 positions will allow you to watch the show you are volunteering at.
                 </p>
 
-                <p className={css(ST.smallTitle)}>Volunteer Position Responsibilities:</p>
+                <p className={css(ST.smallTitle)}>Choose From 7 Volunteer Position Responsibilities</p>
 
                 <p className={css(ST.listItem)}>Door/front of house</p>
                 <p className={css(ST.paragraph)}>
