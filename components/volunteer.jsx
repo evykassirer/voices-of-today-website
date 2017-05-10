@@ -28,7 +28,14 @@ const Volunteer = React.createClass({
                 positions will allow you to watch the show you are volunteering at.
                 </p>
 
-                <p className={css(ST.smallTitle)}>Choose From 7 Volunteer Position Responsibilities</p>
+                <a href="https://goo.gl/forms/1F45ZTTOMYkry1262"
+                   className={css(ST.applyTitle)}>
+                CLICK HERE TO APPLY
+                </a>
+
+                <p className={css(ST.smallTitle)}>
+                Choose From 7 Volunteer Position Responsibilities:
+                </p>
 
                 <p className={css(ST.listItem)}>Door/front of house</p>
                 <p className={css(ST.paragraph)}>
@@ -85,6 +92,13 @@ const ST = StyleSheet.create({
     smallTitle: {
         fontSize: "25px",
         padding: "10px 0px",
+    },
+    applyTitle: {
+        fontSize: "25px",
+        padding: "20px 0 30px 0 ",
+        textAlign: "center",
+        width: "100%",
+        display: "inline-block"
     },
     listItem: {
         fontWeight: "bold",
