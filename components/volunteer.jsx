@@ -33,6 +33,10 @@ const Volunteer = React.createClass({
                 CLICK HERE TO APPLY
                 </a>
 
+                <p className={css(ST.deadlineParagraph)}>
+                Deadline is June 1 at midnight EST.
+                </p>
+
                 <p className={css(ST.smallTitle)}>
                 Choose From 7 Volunteer Position Responsibilities:
                 </p>
@@ -81,6 +85,11 @@ const Volunteer = React.createClass({
 });
 
 const ST = StyleSheet.create({
+    deadlineParagraph:  {
+        lineHeight: "1.5",
+        marginBottom: "30px",
+        textAlign: "center"
+    },
     paragraph: {
         lineHeight: "1.5",
         marginBottom: "30px"

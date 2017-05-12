@@ -31,7 +31,7 @@ const Page = React.createClass({
                     <br/>
                     <div>
                     Apply to perform or run workshops throughout the festival!
-                    Deadline is May 15th at midnight EST.
+                    Deadline is June 1 at midnight EST.
                     Application form: <a href="https://goo.gl/forms/Ufrq9b3dZYUUS4Fa2">
                     https://goo.gl/forms/Ufrq9b3dZYUUS4Fa2
                     </a>
