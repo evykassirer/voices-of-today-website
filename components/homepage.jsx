@@ -28,13 +28,19 @@ const Page = React.createClass({
                     workshops, open mics, and showcases, with the goal of
                     bringing together youth poets from all across Canada.
                     </div>
+
+                    <a className={css(ST.button)}
+                        href="https://docs.google.com/forms/d/e/1FAIpQLScntro-hYeCVzJNYad9_SX2jgM0cceDvm_pgGGYcOOGf1UFmQ/viewform?c=0&w=1&fbzx=7905549790133718000"
+                    >
+                    Team Registration
+                    </a>
+
+                    <div>Deadline for registration is June 20, 2017</div>
                     <br/>
                     <div>
-                    Apply to perform or run workshops throughout the festival!
+                    <a href="https://goo.gl/forms/Ufrq9b3dZYUUS4Fa2">
+                    Apply to perform or run workshops</a> throughout the festival!
                     Deadline is June 1 at midnight EST.
-                    Application form: <a href="https://goo.gl/forms/Ufrq9b3dZYUUS4Fa2">
-                    https://goo.gl/forms/Ufrq9b3dZYUUS4Fa2
-                    </a>
                     </div>
                     <br/>
                     <div>Volunteer at the festival! Learn more <a href="/volunteer">here</a>
@@ -47,6 +53,20 @@ const Page = React.createClass({
 });
 
 const ST = StyleSheet.create({
+    button: {
+        color: "white",
+        backgroundColor: "#1dacee",
+        display: "block",
+        fontSize: 20,
+        padding: "30px",
+        margin: "30px auto",
+        borderRadius: 5,
+        width: 250,
+        textAlign: "center",
+        ":hover": {
+            color: "black"
+        }
+    },
     logo : {
         padding: "10px",
         float: "left",
@@ -64,11 +84,12 @@ const ST = StyleSheet.create({
     },
     blurb : {
         lineHeight: 1.5,
-        fontSize: "19px",
+        fontSize: "17px",
         textAlign: "left",
         paddingLeft: "5%",
         paddingRight: "5%",
         paddingTop: "10px",
+        paddingBottom: "40px",
         overflow: "hidden",
         maxWidth: "80%",
         '@media (max-width:915px)': {
@@ -87,11 +108,15 @@ const ST = StyleSheet.create({
     },
     pageContent: {
         padding: "70px",
-        paddingTop: "15%",
+        paddingTop: "10%",
         width: "100%",
         margin: "0 auto",
         overflow: "hidden",
         display: "block",
+        '@media (max-width:600px)': {
+            paddingLeft: 35,
+            paddingRight: 35
+        }
     },
 });
 
