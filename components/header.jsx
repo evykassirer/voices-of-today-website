@@ -24,6 +24,7 @@ const ST = StyleSheet.create({
         position: "fixed",
         textAlign: "center",
         width: "100%",
+        zIndex: 99,
     },
     text: {
         color: "black",
