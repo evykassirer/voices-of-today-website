@@ -31,7 +31,7 @@ const Page = React.createClass({
                     <div className={css(ST.deadline)}>(deadline June 1)</div>
                 </div>
                 <div className={css(ST.aNavLink)}>
-                    <a className={css(ST.smallButton)} href="https://www.youcaring.com/voicesoftoday-768866">
+                    <a className={css(ST.smallButton)} href="https://featheranchorco.wixsite.com/voicesoftoday">
                     Donate</a>
                     <div className={css(ST.deadline)}>Support the festival</div>
                 </div>
@@ -43,7 +43,7 @@ const Page = React.createClass({
                 <div className={css(ST.blurb)}>
                     <div>Voices of Today is a gathering of youth poets to learn
                     from each other, community leaders, and themselves.
-                    It is scheduled to take place August 20-25 in Toronto,
+                    It is scheduled to take place August 21-25 in Toronto,
                     Ontario.</div>
                     <br/>
                     <div>Voices of Today is a five day festival with
