@@ -18,22 +18,18 @@ const Page = React.createClass({
                 <div className={css(ST.aNavLink)}>
                     <a className={css(ST.smallButton)} href="https://docs.google.com/forms/d/e/1FAIpQLScntro-hYeCVzJNYad9_SX2jgM0cceDvm_pgGGYcOOGf1UFmQ/viewform?c=0&w=1&fbzx=7905549790133718000">
                     Team Registration</a>
-                    <div className={css(ST.deadline)}>(deadline June 20)</div>
                 </div>
                 <div className={css(ST.aNavLink)}>
                     <a className={css(ST.smallButton)} href="https://goo.gl/forms/Ufrq9b3dZYUUS4Fa2">
                     Perform or run workshops</a>
-                    <div className={css(ST.deadline)}>(deadline June 1)</div>
                 </div>
                 <div className={css(ST.aNavLink)}>
                     <a className={css(ST.smallButton)} href="/volunteer">
                     Volunteer</a>
-                    <div className={css(ST.deadline)}>(deadline June 1)</div>
                 </div>
                 <div className={css(ST.aNavLink)}>
                     <a className={css(ST.smallButton)} href="https://featheranchorco.wixsite.com/voicesoftoday">
                     Donate</a>
-                    <div className={css(ST.deadline)}>Support the festival</div>
                 </div>
             </div>
             <div className={css(ST.pageContent)}>
