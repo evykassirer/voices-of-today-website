@@ -74,6 +74,11 @@ const Volunteer = React.createClass({
                 <p className={css(ST.paragraph)}>
                 Responsible to organize all events and persons at that venue. ensure that all performing poets are there as well as the volunteers necessary for that event
                 </p>
+
+                <p className={css(ST.listItem)}>Active Listener</p>
+                <p className={css(ST.paragraph)}>
+                Active listeners are available at every event for poets or audience members to talk to about any feelings or issues that come up throughout the festival. Prior experience in active listening, support work, or in the mental health field is preferred.
+                </p>
             </div>
             <Footer/>
         </div>;
