@@ -42,7 +42,7 @@ const Page = React.createClass({
                     It is scheduled to take place August 22-25 in Toronto,
                     Ontario.</div>
                     <br/>
-                    <div>Voices of Today is a five day festival with
+                    <div> Voices of Today is a poetry festival run by youth for youth, with
                     workshops, open mics, and showcases, with the goal of
                     bringing together youth poets from all across Canada.
                     </div>
