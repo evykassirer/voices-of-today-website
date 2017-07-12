@@ -16,12 +16,8 @@ const Page = React.createClass({
             <Header/>
             <div className={css(ST.navLinks)}>
                 <div className={css(ST.aNavLink)}>
-                    <a className={css(ST.smallButton)} href="https://docs.google.com/forms/d/e/1FAIpQLScntro-hYeCVzJNYad9_SX2jgM0cceDvm_pgGGYcOOGf1UFmQ/viewform?c=0&w=1&fbzx=7905549790133718000">
-                    Team Registration</a>
-                </div>
-                <div className={css(ST.aNavLink)}>
-                    <a className={css(ST.smallButton)} href="https://goo.gl/forms/Ufrq9b3dZYUUS4Fa2">
-                    Perform or run workshops</a>
+                    <a className={css(ST.smallButton)} href="/schedule">
+                    Schedule</a>
                 </div>
                 <div className={css(ST.aNavLink)}>
                     <a className={css(ST.smallButton)} href="/volunteer">
@@ -58,9 +54,9 @@ const Page = React.createClass({
                     </div>
 
                     <a className={css(ST.button)}
-                        href="https://docs.google.com/forms/d/e/1FAIpQLScntro-hYeCVzJNYad9_SX2jgM0cceDvm_pgGGYcOOGf1UFmQ/viewform?c=0&w=1&fbzx=7905549790133718000"
+                        href="https://featheranchorco.wixsite.com/voicesoftoday"
                     >
-                    Team Registration
+                    DONATE
                     </a>
                 </div>
             </div>

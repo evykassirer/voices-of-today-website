@@ -28,6 +28,7 @@
     "react": "^0.14.1",
     "react-art": "^0.13.0",
     "react-dom": "^0.14.2",
-    "react-router": "^2.3.0"
+    "react-router": "^2.3.0",
+    "tabletop": "^1.5.2"
   }
 }
