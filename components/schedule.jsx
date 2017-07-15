@@ -42,6 +42,8 @@ const Schedule = React.createClass({
                         <div className={css(ST.time)}>{ event.Start_Time } - { event.End_Time }</div>
                         <div className={css(ST.location)}>Location: { event.Location }</div>
                         <div className={css(ST.address)}>Address: { event.Address }</div>
+                        { event.Price && <div className={css(ST.price)}>{ event.Price }</div> }
+                        { event.Description && <div className={css(ST.description)}>{ event.Description }</div> }
                     </div>;
                 })
             }
@@ -106,7 +108,7 @@ const ST = StyleSheet.create({
         lineHeight: 1.5
     },
     eventName: {
-        fontSize: 20,
+        fontSize: 22,
     },
     dateNav: {
         position: "fixed",
@@ -114,6 +116,11 @@ const ST = StyleSheet.create({
     },
     dateNavDate: {
         margin: 12
+    },
+    description: {
+        marginTop: 10,
+        marginBottom: 30,
+        fontSize: 14
     },
     container: {
         position: "absolute",
