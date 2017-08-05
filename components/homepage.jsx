@@ -24,7 +24,7 @@ const Page = React.createClass({
                     Volunteer</a>
                 </div>
                 <div className={css(ST.aNavLink)}>
-                    <a className={css(ST.smallButton)} href="https://featheranchorco.wixsite.com/voicesoftoday">
+                    <a className={css(ST.smallButton)} href="https://igg.me/at/voices-of-today">
                     Donate</a>
                 </div>
             </div>
@@ -54,7 +54,7 @@ const Page = React.createClass({
                     </div>
 
                     <a className={css(ST.button)}
-                        href="https://featheranchorco.wixsite.com/voicesoftoday"
+                        href="https://igg.me/at/voices-of-today"
                     >
                     DONATE
                     </a>
