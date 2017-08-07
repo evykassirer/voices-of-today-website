@@ -58,6 +58,13 @@ const Page = React.createClass({
                     >
                     DONATE
                     </a>
+
+                    <div className={css(ST.donors)}>
+                        Thanks to our amazing shout-out level donors:
+                    </div>
+                    <div className={css(ST.donors)}>
+                        Shane Kozycan and Evy Kassirer
+                    </div>
                 </div>
             </div>
             <Footer/>
@@ -66,6 +73,9 @@ const Page = React.createClass({
 });
 
 const ST = StyleSheet.create({
+    donors: {
+        textAlign: "center",
+    },
     smallButton: {
         color: "#1dacee",
         backgroundColor: "indigo",//"#1dacee",
