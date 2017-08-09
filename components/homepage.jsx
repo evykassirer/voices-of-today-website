@@ -63,7 +63,7 @@ const Page = React.createClass({
                         Thanks to our amazing shout-out level donors:
                     </div>
                     <div className={css(ST.donors)}>
-                        Shane Kozycan and Evy Kassirer
+                        Shane Kozycan, Evy Kassirer, and Jay Kassirer
                     </div>
                 </div>
             </div>
