@@ -44,9 +44,11 @@ const Schedule = React.createClass({
                     return <div className={css(ST.eventBlock)}>
                         <div className={css(ST.eventName)}>{ event.Event_Name }</div>
                         <div className={css(ST.time)}>{ event.Start_Time } - { event.End_Time }</div>
-                        <div className={css(ST.location)}>Location: { event.Location }</div>
-                        <div className={css(ST.address)}>Address: { event.Address }</div>
+                        <div className={css(ST.location)}>Location: { event.Location } --- { event.Address }</div>
                         { event.Price && <div className={css(ST.price)}>{ event.Price }</div> }
+                        { event.Tickets && <div className={css(ST.tickets)}>
+                            <a href = {event.Tickets}>Buy tickets here</a>
+                        </div> }
                         { event.Description && <div className={css(ST.description)}>
                             { descriptionLines.map(line => {
                                 if (line == '') return <br/>;
