@@ -27,6 +27,9 @@ const Page = React.createClass({
                     <a className={css(ST.smallButton)} href="https://igg.me/at/voices-of-today">
                     Donate</a>
                 </div>
+                <a href="https://college.snapd.com/events/view/1076288"  target="_blank" className={css(ST.ticketsLink)}>
+                    <img src="images/tickets.png" className={css(ST.ticketsImage)}/>
+                </a>
             </div>
             <div className={css(ST.pageContent)}>
                 <div className={css(ST.logo)}>
@@ -97,6 +100,14 @@ const ST = StyleSheet.create({
     aNavLink: {
         display: "inline-block",
         padding: 20,
+    },
+    ticketsLink: {
+        display: "inline-block",
+    },
+    ticketsImage: {
+        height: 61,
+        marginBottom: -24,
+        paddingLeft: 17
     },
     button: {
         color: "white",
