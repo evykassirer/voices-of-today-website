@@ -30,7 +30,7 @@ const Header = React.createClass({
             <div className={css(ST.iconGroup)}>
                 <Icon
                     imageName="facebook.png"
-                    linkTo="https://www.facebook.com/pg/VoicesofToday"
+                    linkTo="https://www.facebook.com/VoicesofToday/"
                 />
                 <Icon
                     imageName="twitter.png"
@@ -38,7 +38,7 @@ const Header = React.createClass({
                 />
                 <Icon
                     imageName="email.png"
-                    linkTo="malito:voicesoftodayfoc@gmail.com"
+                    linkTo="malito:voicesoftodayFOC@gmail.com"
                 />
             </div>
         </div>;

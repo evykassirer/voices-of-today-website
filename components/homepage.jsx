@@ -11,10 +11,17 @@ const Footer = require("./footer.jsx");
 
 
 const Page = React.createClass({
+
+
     render: function() {
         return <div className={css(ST.page)}>
             <Header/>
             <div className={css(ST.navLinks)}>
+            {/*
+                <div className={css(ST.aNavLink)}>
+                    <a className={css(ST.smallButton)} href="/mandate">
+                    Mandate</a>
+                </div>
                 <div className={css(ST.aNavLink)}>
                     <a className={css(ST.smallButton)} href="/schedule">
                     Schedule</a>
@@ -30,32 +37,43 @@ const Page = React.createClass({
                 <a href="https://college.snapd.com/events/view/1076288"  target="_blank" className={css(ST.ticketsLink)}>
                     <img src="images/tickets.png" className={css(ST.ticketsImage)}/>
                 </a>
+            */}
             </div>
             <div className={css(ST.pageContent)}>
                 <div className={css(ST.logo)}>
                     <img src="images/logo_colour.jpg" className={css(ST.logoImage)}/>
                 </div>
                 <div className={css(ST.blurb)}>
-                    <div>Voices of Today is a gathering of youth poets to learn
-                    from each other, community leaders, and themselves.
-                    It is scheduled to take place August 22-25 in Toronto,
-                    Ontario.</div>
+                    <div>
+                    Voices of Today is pleased to announce our return in 2018. The festival will run in what is colonially known as Toronto from July 24-28 at the Palmerston Library Theatre.
+                    </div>
                     <br/>
-                    <div> Voices of Today is a poetry festival run by youth for youth, with
-                    workshops, open mics, and showcases, with the goal of
-                    bringing together youth poets from all across Canada.
+                    <div> Voices of Today is a poetry festival run by youth for youth. Five days of workshops, open mics, and showcases, with the goal of bringing together youth poets from all across this colonial nation. Throughout the festival, teams will compete to be crowned the Voices of Today 2018 Grand Slam Champions. To register a team please contact <a href="voicesoftodayFOC@gmail.com">voicesoftodayFOC@gmail.com</a>.
                     </div>
                     <br/>
                     <div>
-                    Voices of Today is the newest addition to the festivals run
-                    by <a href="https://spokenwordcanada.com/about/">Spoken Word
-                    Canada</a>.
-                    It is difficult for youth to go to the all ages poetry festival in
-                    October due to school, and all ages festivals are often not very
-                    supportive of all ages. Voices of Today was created to
-                    prioritize and to support youth voices.
+                    To apply to run an event at the festival visit: <a href="https://goo.gl/JyQwT2">https://goo.gl/JyQwT2</a>
+                    </div>
+                    <br/>
+
+                    <div>
+
+                    <a className={css(ST.title)} href="/mandate">Mandate:</a>
+                    <div>
+                    (to read the full mandate, click the title of this section)
+                    <br/><br/>
+                    </div>
+                    <ol className={css(ST.list)}>
+                        <li>We seek consent first and always, and acknowledge that we are organising on stolen indigenous land.</li>
+                        <li>We intentionally organize in ways that seek not to replicate existing state and social violence.</li>
+                        <li>We strive to break down barriers to accessibility.</li>
+                        <li>VoT brings together youth artists from across what is colonially-known-as Canada</li>
+                        <li>Our festival is run by youth for youth.</li>
+                        <li>We encourage all voices at our festival. Regardless of whether you vocalize; people are never ‘voiceless’.</li>
+                    </ol>
                     </div>
 
+                    {/*}
                     <a className={css(ST.button)}
                         href="https://igg.me/at/voices-of-today"
                     >
@@ -68,6 +86,7 @@ const Page = React.createClass({
                     <div className={css(ST.donors)}>
                         Shane Kozycan, Evy Kassirer, and Jay Kassirer
                     </div>
+                    */}
                 </div>
             </div>
             <Footer/>
@@ -78,6 +97,14 @@ const Page = React.createClass({
 const ST = StyleSheet.create({
     donors: {
         textAlign: "center",
+    },
+    title: {
+        fontSize: 30,
+    },
+    list: {
+        listStyle: "decimal outside",
+        marginLeft: 30,
+        lineHeight: 1.5
     },
     smallButton: {
         color: "#1dacee",
