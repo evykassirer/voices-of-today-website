@@ -19,7 +19,7 @@ const Header = React.createClass({
 
 const ST = StyleSheet.create({
     headerBar: {
-        backgroundColor: "#1DACEE",
+        backgroundColor: "#fdbc49",
         display: "inline-block",
         position: "fixed",
         textAlign: "center",

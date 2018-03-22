@@ -41,7 +41,7 @@ const Page = React.createClass({
             </div>
             <div className={css(ST.pageContent)}>
                 <div className={css(ST.logo)}>
-                    <img src="images/logo_colour.jpg" className={css(ST.logoImage)}/>
+                    <img src="images/logo.png" className={css(ST.logoImage)}/>
                 </div>
                 <div className={css(ST.blurb)}>
                     <div>
@@ -56,7 +56,7 @@ const Page = React.createClass({
                     </div>
                     <br/>
 
-                    <div>
+                    <div className={css(ST.mandate)}>
 
                     <a className={css(ST.title)} href="/mandate">Mandate:</a>
                     <div>
@@ -106,6 +106,9 @@ const ST = StyleSheet.create({
         marginLeft: 30,
         lineHeight: 1.5
     },
+    mandate: {
+        marginBottom: 30
+    },
     smallButton: {
         color: "#1dacee",
         backgroundColor: "indigo",//"#1dacee",
@@ -153,7 +156,7 @@ const ST = StyleSheet.create({
     logo : {
         padding: "10px",
         float: "left",
-        '@media (max-width:915px)': {
+        '@media (max-width:1000px)': {
             float: "none",
             padding: "10px",
             textAlign: "center",
@@ -161,7 +164,7 @@ const ST = StyleSheet.create({
     },
     logoImage: {
         height: "20em",
-        '@media (max-width:915px)': {
+        '@media (max-width:1000px)': {
             height: "15em",
         }
     },
@@ -175,7 +178,7 @@ const ST = StyleSheet.create({
         paddingBottom: "40px",
         overflow: "hidden",
         maxWidth: "80%",
-        '@media (max-width:915px)': {
+        '@media (max-width:1000px)': {
             float: "center",
             fontSize: "17px",
             position: "relative",
