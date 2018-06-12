@@ -17,14 +17,14 @@ const Page = React.createClass({
         return <div className={css(ST.page)}>
             <Header/>
             <div className={css(ST.navLinks)}>
+                <div className={css(ST.aNavLink)}>
+                    <a className={css(ST.smallButton)} href="/schedule">
+                    Schedule</a>
+                </div>
             {/*
                 <div className={css(ST.aNavLink)}>
                     <a className={css(ST.smallButton)} href="/mandate">
                     Mandate</a>
-                </div>
-                <div className={css(ST.aNavLink)}>
-                    <a className={css(ST.smallButton)} href="/schedule">
-                    Schedule</a>
                 </div>
                 <div className={css(ST.aNavLink)}>
                     <a className={css(ST.smallButton)} href="/volunteer">
@@ -110,8 +110,8 @@ const ST = StyleSheet.create({
         marginBottom: 30
     },
     smallButton: {
-        color: "#1dacee",
-        backgroundColor: "indigo",//"#1dacee",
+        color: "black",//"#1dacee",
+        backgroundColor: "#fdbc49",//"indigo",//"#1dacee",
         padding: "20px",
         borderRadius: 5,
         fontSize: 18,
