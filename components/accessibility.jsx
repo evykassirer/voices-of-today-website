@@ -14,11 +14,12 @@ const Accessibility = React.createClass({
             <Header/>
             <div className={css(ST.pageContent)}>
                 <div className={css(ST.title)}>
-                Voice of Today Accessibility
+                Voices of Today Accessibility
                 </div>
 
                 <p className={css(ST.smallTitle)}>
-                Voices of Today is committed to creating an environment that is accessible to all those wanting to take part in the festival’s events. 
+                Voices of Today is committed to creating an environment that is accessible to all those wanting to take part in the festival’s events.
+                <br/><br/>
                 In reviewing the venue’s level of accessibility, we used <a href="https://goo.gl/AAbGUq">https://goo.gl/AAbGUq</a> to assist with this endeavour.
 
                 </p>

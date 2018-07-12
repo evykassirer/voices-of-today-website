@@ -55,7 +55,11 @@ const Page = React.createClass({
                     To apply to run an event at the festival visit: <a href="https://goo.gl/JyQwT2">https://goo.gl/JyQwT2</a>
                     </div>
                     <br/>
+                    <div>
+                    You can read about accessibility at Voices of Today <a href="/accessibility">here</a>.
+                    </div>
 
+                    <br/>
                     <div className={css(ST.mandate)}>
 
                     <a className={css(ST.title)} href="/mandate">Mandate:</a>
