@@ -52,10 +52,6 @@ const Page = React.createClass({
                     </div>
                     <br/>
                     <div>
-                    To apply to run an event at the festival visit: <a href="https://goo.gl/JyQwT2">https://goo.gl/JyQwT2</a>
-                    </div>
-                    <br/>
-                    <div>
                     You can read about accessibility at Voices of Today <a href="/accessibility">here</a>.
                     </div>
 
