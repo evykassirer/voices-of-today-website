@@ -55,6 +55,19 @@ const Page = React.createClass({
                     You can read about accessibility at Voices of Today <a href="/accessibility">here</a>.
                     </div>
 
+                    <a className={css(ST.button)}
+                        href="https://www.indiegogo.com/projects/voices-of-today-2018--2"
+                    >
+                    DONATE
+                    </a>
+
+                    <div className={css(ST.donors)}>
+                        Thanks to our amazing shout-out level donors:
+                    </div>
+                    <div className={css(ST.donors)}>
+                        Evy Kassirer, Jay Kassirer, and a donation from the estate of Layah Weinstock
+                    </div>
+
                     <br/>
                     <div className={css(ST.mandate)}>
 
@@ -72,21 +85,6 @@ const Page = React.createClass({
                         <li>We encourage all voices at our festival. Regardless of whether you vocalize; people are never ‘voiceless’.</li>
                     </ol>
                     </div>
-
-                    {/*}
-                    <a className={css(ST.button)}
-                        href="https://igg.me/at/voices-of-today"
-                    >
-                    DONATE
-                    </a>
-
-                    <div className={css(ST.donors)}>
-                        Thanks to our amazing shout-out level donors:
-                    </div>
-                    <div className={css(ST.donors)}>
-                        Shane Kozycan, Evy Kassirer, and Jay Kassirer
-                    </div>
-                    */}
                 </div>
             </div>
             <Footer/>
