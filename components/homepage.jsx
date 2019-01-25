@@ -45,10 +45,8 @@ const Page = React.createClass({
                 </div>
                 <div className={css(ST.blurb)}>
                     <div>
-                    Voices of Today is pleased to announce our return in 2018. The festival will run in what is colonially known as Toronto from July 24-28 at the Palmerston Library Theatre.
-                    </div>
-                    <br/>
-                    <div> Voices of Today is a poetry festival run by youth for youth. Five days of workshops, open mics, and showcases, with the goal of bringing together youth poets from all across this colonial nation. Throughout the festival, teams will compete to be crowned the Voices of Today 2018 Grand Slam Champions. To register a team please contact <a href="voicesoftodayFOC@gmail.com">voicesoftodayFOC@gmail.com</a>.
+                    Voices of Today is pleased to announce our return in 2019.
+                    Dates and more coming soon!
                     </div>
                     <br/>
                     <div>
