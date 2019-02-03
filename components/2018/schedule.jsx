@@ -1,20 +1,20 @@
 // TODO update stuff so I don't literally repeat this file but I don't have time to debug this right now
 // and wow is this repo really not using es6? mrah
 
-const { StyleSheet, css } = require('../lib/aphrodite.js');
+const { StyleSheet, css } = require('../../lib/aphrodite.js');
 const React = require('react');
 const Tabletop = require('tabletop');
 
-const SS = require('../styles.js');
+const SS = require('../../styles.js');
 
 const RP = React.PropTypes;
 
 const Header = require("./header.jsx");
 const Footer = require("./footer.jsx");
 
-const SHEETS_URL = "https://docs.google.com/spreadsheets/d/1YOlNoJt_H-7xmRoxEh9hJB14Jn4J-OxUhRJ5yqxXds0/pubhtml"
+const SHEETS_URL = "https://docs.google.com/spreadsheets/d/18XOcYttWY05agaUqEXv3NiNq_FodM0tuAyNETr3HgLI/edit?usp=sharing";
 
-const Schedule2017 = React.createClass({
+const Schedule = React.createClass({
     getInitialState: function() {
         return {events: []};
     },
@@ -78,10 +78,10 @@ const Schedule2017 = React.createClass({
             <Header/>
             <div className={css(ST.pageContent)}>
                 <div className={css(ST.title)}>
-                    Schedule (2017, for reference)
+                    Schedule
                 </div>
                 { datesAlpha.length === 0 ?
-                    <div className={css(ST.container)}> Loading... </div> :
+                    <div className={css(ST.container)}> Loading../... </div> :
                     <div>
                         <div className={css(ST.dateNav)}>
                             { datesAlpha.map(date => {
@@ -102,7 +102,6 @@ const Schedule2017 = React.createClass({
         </div>;
     }
 });
-
 
 const ST = StyleSheet.create({
     day: {
@@ -162,4 +161,4 @@ const ST = StyleSheet.create({
     },
 });
 
-module.exports = Schedule2017;
+module.exports = Schedule;

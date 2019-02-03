@@ -1,8 +1,8 @@
-const { StyleSheet, css } = require('../lib/aphrodite.js');
+const { StyleSheet, css } = require('../../lib/aphrodite.js');
 const React = require('react');
 const Router = require('react-router');
 
-const SS = require('../styles.js');
+const SS = require('../../styles.js');
 
 const RP = React.PropTypes;
 
@@ -18,13 +18,24 @@ const Page = React.createClass({
             <Header/>
             <div className={css(ST.navLinks)}>
                 <div className={css(ST.aNavLink)}>
-                    <a className={css(ST.smallButton)} href="/mandate">
+                    <a className={css(ST.smallButton)} href="/2018-schedule">
+                    Schedule</a>
+                </div>
+                <div className={css(ST.aNavLink)}>
+                    <a className={css(ST.smallButton)} href="/2018-mandate">
                     Mandate</a>
                 </div>
                 <div className={css(ST.aNavLink)}>
-                    <a className={css(ST.smallButton)} href="/volunteer">
+                    <a className={css(ST.smallButton)} href="/2018-volunteer">
                     Volunteer</a>
                 </div>
+                <div className={css(ST.aNavLink)}>
+                    <a className={css(ST.smallButton)} href="https://igg.me/at/voices-of-today">
+                    Donate</a>
+                </div>
+                <a href="https://college.snapd.com/events/view/1076288"  target="_blank" className={css(ST.ticketsLink)}>
+                    <img src="images/tickets.png" className={css(ST.ticketsImage)}/>
+                </a>
             </div>
             <div className={css(ST.pageContent)}>
                 <div className={css(ST.logo)}>
@@ -32,21 +43,34 @@ const Page = React.createClass({
                 </div>
                 <div className={css(ST.blurb)}>
                     <div>
-                    Voices of Today is pleased to announce our return August 20th
-                    to 24th 2019 at the Toronto Media Arts Centre in
-                    Tkaronto (Toronto), Ontario. <a href="https://www.tomediaarts.org/">
-                    Venue information</a>
+                    Voices of Today is pleased to announce our return in 2018. The festival will run in what is colonially known as Toronto from July 24-28 at the Palmerston Library Theatre.
                     </div>
                     <br/>
                     <div>
-                    You can read about accessibility at Voices of Today <a href="/accessibility">here</a>.
+                    Voices of Today is a poetry festival run by youth for youth. Five days of workshops, open mics, and showcases, with the goal of bringing together youth poets from all across this colonial nation. Throughout the festival, teams will compete to be crowned the Voices of Today 2018 Grand Slam Champions. To register a team please contact <a href="voicesoftodayFOC@gmail.com">voicesoftodayFOC@gmail.com</a>.
+                    </div>
+                    <br/>
+                    <div>
+                    You can read about accessibility at Voices of Today <a href="/2018-accessibility">here</a>.
                     </div>
 
+                    <a className={css(ST.button)}
+                        href="https://www.indiegogo.com/projects/voices-of-today-2018--2"
+                    >
+                    DONATE
+                    </a>
+
+                    <div className={css(ST.donors)}>
+                        Thanks to our amazing shout-out level donors:
+                    </div>
+                    <div className={css(ST.donors)}>
+                        Evy Kassirer, Jay Kassirer, and a donation from the estate of Layah Weinstock
+                    </div>
 
                     <br/>
                     <div className={css(ST.mandate)}>
 
-                    <a className={css(ST.title)} href="/mandate">Mandate:</a>
+                    <a className={css(ST.title)} href="/2018-mandate">Mandate:</a>
                     <div>
                     (to read the full mandate, click the title of this section)
                     <br/><br/>

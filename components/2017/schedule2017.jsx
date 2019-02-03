@@ -1,20 +1,20 @@
 // TODO update stuff so I don't literally repeat this file but I don't have time to debug this right now
 // and wow is this repo really not using es6? mrah
 
-const { StyleSheet, css } = require('../lib/aphrodite.js');
+const { StyleSheet, css } = require('../../lib/aphrodite.js');
 const React = require('react');
 const Tabletop = require('tabletop');
 
-const SS = require('../styles.js');
+const SS = require('../../styles.js');
 
 const RP = React.PropTypes;
 
 const Header = require("./header.jsx");
 const Footer = require("./footer.jsx");
 
-const SHEETS_URL = "https://docs.google.com/spreadsheets/d/18XOcYttWY05agaUqEXv3NiNq_FodM0tuAyNETr3HgLI/edit?usp=sharing";
+const SHEETS_URL = "https://docs.google.com/spreadsheets/d/1YOlNoJt_H-7xmRoxEh9hJB14Jn4J-OxUhRJ5yqxXds0/pubhtml"
 
-const Schedule = React.createClass({
+const Schedule2017 = React.createClass({
     getInitialState: function() {
         return {events: []};
     },
@@ -78,7 +78,7 @@ const Schedule = React.createClass({
             <Header/>
             <div className={css(ST.pageContent)}>
                 <div className={css(ST.title)}>
-                    Schedule
+                    Schedule (2017, for reference)
                 </div>
                 { datesAlpha.length === 0 ?
                     <div className={css(ST.container)}> Loading... </div> :
@@ -102,6 +102,7 @@ const Schedule = React.createClass({
         </div>;
     }
 });
+
 
 const ST = StyleSheet.create({
     day: {
@@ -161,4 +162,4 @@ const ST = StyleSheet.create({
     },
 });
 
-module.exports = Schedule;
+module.exports = Schedule2017;
