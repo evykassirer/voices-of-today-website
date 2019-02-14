@@ -17,6 +17,13 @@ const Accessibility = React.createClass({
                 Voices of Today Accessibility
                 </div>
 
+                This page will be updated once we do our own accessibility audit
+                of this years venue. Until then, you can find some information at <a
+                href="https://policies.tomediaarts.org/procedure-manual/policies/accessibility">
+                https://policies.tomediaarts.org/procedure-manual/policies/accessibility
+                </a>
+                <br/><br/>
+
                 <p className={css(ST.smallTitle)}>
                 Voices of Today is committed to creating an environment that is accessible to all those wanting to take part in the festival’s events.
                 <br/><br/>
@@ -71,7 +78,9 @@ const Accessibility = React.createClass({
                 We will be taking photos throughout the festival at various events. For those who would like to avoid having photos taken of them/posted, we will have beaded necklaces for anyone. That way if our photographer snaps a photo of you we will be able to delete it.
                 </p>
                 <p className={css(ST.paragraph)}>
-                If you have any questions in regards to the accessibility of our festival or require follow up on an accessibility matter, please contact Katelyn or Kay, or email <a href="mailto:voicesoftodayFOC@gmail.com">voicesoftodayFOC@gmail.com</a>.
+                If you have any questions in regards to the accessibility of our
+                festival or require follow up on an accessibility matter, please
+                contact Kat Moscone at <a href="mailto:voicesoftodayFOC@gmail.com">voicesoftodayFOC@gmail.com</a>.
                 </p>
             </div>
             <Footer/>
