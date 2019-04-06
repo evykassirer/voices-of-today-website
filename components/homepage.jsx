@@ -32,10 +32,12 @@ const Page = React.createClass({
                 </div>
                 <div className={css(ST.blurb)}>
                     <div>
-                    Voices of Today is pleased to announce our return August 20th
-                    to 24th 2019 at the Toronto Media Arts Centre in
-                    Tkaronto (Toronto), Ontario. <a href="https://www.tomediaarts.org/">
-                    Venue information</a>
+                    We're getting ready for our 2019 festival, and performer/facilitator applications are now open! We're running August 24th to 28th this year, at the Toronto Media Arts Centre.
+                    <br/><br/>
+                    This year we're focusing on multidisciplinary arts workshops and events that people can pop in and out of throughout the day, including things outside of the field of spoken word and poetry.
+                    <br/><br/>
+                    Applications are open until midnight EST on April 31st!
+                    APPLY <a href="https://forms.gle/UdzgBhwQoEwss3uX7">HERE</a>
                     </div>
                     <br/>
                     <div>
