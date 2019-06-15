@@ -67,8 +67,12 @@ const Accessibility = React.createClass({
                 <p className={css(ST.paragraph)}>
                 The space will be scent free, and free of air fresheners, including in the bathrooms. There may be dander due to support animals, but animals are not normally in the space. There is not much room in the area surrounding the venue for a guide dog to be toileted. The venue is non-smoking. Alcohol and other substances are not offered and not allowed to be consumed in the space. This is an indoor venue so there is shelter available to all guests and participants. There is no quiet space available, and it is not possible to rent wheelchairs at the venue. The venue is welcoming to children, but there is no childcare available on site. For those who use stims they not be available at the space, but we encourage folks to bring their own.
                 </p>
+
+                <p className={css(ST.listItem)}>
+                ASL
+                </p>
                 <p className={css(ST.paragraph)}>
-                Unfortunately we will not be having ASL interpreters for our events.
+                Interpreters will be at finals, and every effort will be made to provide interpreters at as many events as possible. If there is a particular event you wish to attend, please make a request and we will give it priority.
                 </p>
 
                 <p className={css(ST.listItem)}>
